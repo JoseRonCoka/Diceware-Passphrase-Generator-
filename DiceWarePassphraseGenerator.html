@@ -1,0 +1,323 @@
+<!--File: DiceWarePassphraseGenerator.html
+Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
+Author: Jose Ron Coka
+History: Version 1.0 December 10, 2022. First Fully working prototype-->
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Dice Ware Passphrase Generator</title>
+    <style type="text/css">
+      body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+            font-size: 12pt;
+            text-align: center;
+            background-color: lightgray;}
+
+      .button:hover {
+        background-color: darkgrey; 
+        color: white;
+        }
+
+      .center {text-align: center;}
+      .centerTable {margin-left: auto;
+                    margin-right: auto;}
+
+      .left {text-align: left;}
+
+      table {text-align: center;}
+
+      input {font-size: 20px;
+            background-color: gray;
+            color: white;}
+    
+
+      .result{color: darkgoldenrod;}
+
+
+
+    </style>
+    
+    <script type="text/javascript">
+      //Setting up global variables. 
+      var pLen;
+      var numT;
+      var initL;
+      var initArr=[];
+      
+      const words = []; // array to store the words
+      var matchingElements = []; //array to store the matching words to the dice throws
+      
+
+        
+      function start() {
+        
+        //Reads input .txt file with the wordlist.
+        const fileInput= document.getElementById('fileIn');
+
+        fileInput.addEventListener('change', () => {
+
+        const fr= new FileReader();
+        fr.readAsText(fileInput.files[0]);
+
+        fr.addEventListener('load',() => {
+          console.log(fr.result);
+
+          const lines = fr.result.split('\n');
+          //const lines = split.replace('\r','');
+          // Loop through the lines and split each line by spaces
+        for (const line of lines) {
+            const wordPairs = line.split('\t'); // split the line by spaces
+            words.push(wordPairs);
+           }
+           console.log(words);
+        })
+      })
+
+        var genButton = document.getElementById("genBut");
+        genButton.addEventListener("click",generateFunc);
+
+      }
+
+      //Function generate should take length of passphrase generator and call dice that amount of times
+      //get the word from the word list file depending each dice throw 
+      //Can write it into a string array. 
+      //If we are adding symbols and more. if button input call function to change. 
+
+      function generateFunc(){
+
+
+        //Take string input turn it into char array and compare in function
+        
+
+        //Takes the input from the HTML
+        numT= document.getElementById("throws").value;
+        console.log(numT);
+        var diceArr=new Array(numT);
+
+        var pLen= document.getElementById("lenP").value;
+
+        document.getElementById("initials").maxlength = pLen;
+        initL=document.getElementById("initials").value;
+        initArr=initL.split('');
+
+
+        //Prints inputs to the html.
+        document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
+        console.log(pLen);
+
+        var count=pLen;
+        var passphrase = new Array(pLen);
+
+        
+
+        //Two loops, one runs for every word, another runs the dice roll 6 times for each word.
+        //Two arrays, one for passphrase another for each dice throw.
+        //After second loop runs the array with the dice throws is turned to a string and saved on the passphrase array. 
+        for (i=0; i<pLen;i++)
+        {
+          for (j=0;j<numT;j++)
+          {
+            diceArr[j]=diceRoll();
+            console.log("Element "+(j+1)+" of word "+(i+1)+" is: "+diceArr[j]);
+          }
+          var diceAsString = diceArr.join(''); // Results in a string
+          passphrase[i]=diceAsString; 
+          console.log(passphrase[i]);
+        } 
+
+        console.log(passphrase.length);
+
+
+        //Check which match function to call depending on users input. If no input on Acronym then normal match. 
+        if (initArr.length==0){
+          for (x=0; x<=pLen; x++)
+        {
+          match(passphrase[x]);
+        }
+        }
+        else{
+        for (z=0; z<=pLen; z++){
+          matchInit(passphrase[z],z);
+        }
+        }
+        
+        //Resulting Passphrase is printed 
+        var message="";
+        for (y=0; y<pLen; y++)
+        {
+          message+=matchingElements[y]+ " ";
+        }
+
+        document.getElementById("test").innerHTML =message; 
+       
+        //Empty array in case user press button again. 
+        matchingElements=[];
+
+        //Final message is printed
+        var finalmessage="If you are good with the generated passphrase and wish to use it, "; 
+        finalmessage+="we recommend that you save a copy of it, either on a Password Manager or ";
+        finalmessage+="write it in a piece of paper and store it in a safe place. Then take a little time to try to memorize it.";;
+        finalmessage+="To use it for some accounts you might need to meet requirements like adding numbers and symbols.";
+    
+        document.getElementById("finMess").innerHTML =finalmessage; 
+
+      }
+
+        //function searches for the correct word using the generated code. 
+    
+        function match(number){
+
+          console.log(number); 
+          
+          for (i = 0; i < words.length; i++) {
+
+          var innerArray = words[i];
+          
+          if (innerArray[0]==number) {
+
+            if (innerArray[1].length<=3){
+              match(getNewRoll());
+              return;
+            }
+            console.log(innerArray);
+            matchingElements.push(innerArray[1]);
+            break;
+            } 
+          }     
+          
+          console.log(matchingElements);
+        }
+
+        //In case initials are used. matchInit() calls itself and getNewRoll() 
+        //until a word with the correct initial is received. 
+        function matchInit(number,index){
+
+          for (i = 0; i < words.length; i++) {
+
+          var innerArray = words[i];
+
+          if (innerArray[0]==number) {
+          var word=innerArray[1];
+          if (word.charAt(0) != initArr[index]){
+              matchInit(getNewRoll(),index);
+              return;
+           }
+        console.log(innerArray);
+        matchingElements.push(innerArray[1]);
+        break;
+        } 
+        }     
+        }
+
+
+    //Functions getNewRoll() In case a word is too small we roll dice again for a new code and return.  
+        
+    function getNewRoll(){
+
+      var diceArr=[];
+      for (j=0;j<numT;j++)
+          {
+            diceArr[j]=diceRoll();
+            console.log("Element "+(j+1)+" of word "+(i+1)+" is: "+diceArr[j]);
+          }
+      var diceAsString = diceArr.join('');
+
+      return diceAsString; 
+    }
+        
+
+     
+      //Function diceRoll returns a random number between 1 and 6. 
+     function diceRoll(){
+        return 1 + Math.floor(Math.random() * 6);
+     }
+        
+     window.addEventListener("load",start,false);
+    </script>
+  </head>
+
+  <body>
+    
+    <h1>Welcome to the Dice Ware Passphrase Generator.</h1>
+    <p>
+      The purpose of this website is to produce a secure Passphrase through the DiceWare algorithm.
+      To select a word a dice is thrown a number of times, depending on the results it got a number is picked from a DiceWare Wordlist. 
+      More information in the algorithm and the WordLists that can be used are available in the manual. 
+      Besides generating a purely random passphrase it can also generate a Acronym passphrase.
+      Meaning you can enter a meaningful word to you, and the Passphrase generated will be made up by words
+      that start with each of the characters that the word you enter contain. This should make it easier to remember. 
+    </p>
+    <hr>
+    <h3 class="left">Steps:</h3>
+
+    <p class="left">
+
+    
+      1. First Input the .txt file with the Wordlist you will use. Remember it must follow the DiceWare Algorithm. <br><br>
+      2. Enter how many dice throws your Wordlist requires. The Wordlists provided use 5 Dice throws.<br><br>
+      3. Enter how many words you want the passphrase to contain. <br><br>
+      4. Leave empty or enter the meaningful word to form the Acronym Passphrase. IT MUST HAVE AS MANY LETTERS AS THE PASSSPHRASE LENGTH YOU ENTERED IN THE PREVIOUS STEP.<br><br>
+      5. Click on the Generate Button and see the results. <br><br>
+
+      TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 5. <br><br>
+      TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 5.<br><br>
+    </p>
+
+    <hr>
+    <h3 class="left">Enter: </h3>
+
+    
+    <!--Form Element, inputs-->
+    <form action="#">
+      <table class="centerTable">
+      
+        <tr>
+        <td>
+          <label for="fileIn">Input Wordlist here: </label>
+        <input type="file"  id="fileIn" name="fileInput"><br><br>
+          
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="throws">Number of Dice Throws:</label>
+            <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="lenP">Passphrase Length:</label>
+            <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
+            <input type="text"  id="initials" name="initials" size="4"><br><br>
+            
+          </td>
+        </tr>
+      </table>
+
+        <h3 id="disLen"></h3>
+        <h3>Passphrase Generated:</h3>
+        <h2 class="result" id="test"></h2>
+          <form action="#">
+          <!--Generate button-->
+            <input id="genBut" type="button" value="Generate"/>
+        
+        <h3 id="finMess"></h3>
+
+        
+        
+  </body>
+
+  <footer>
+    <p>Created by Jose Luis Ron Coka. For comments contact me at: <a href="mailto:jr3412@mynsu.nova.edu">jr3412@mynsu.nova.edu</a></p>
+  </footer>
+</html>

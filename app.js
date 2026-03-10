@@ -56,13 +56,11 @@
 
         var pLen= document.getElementById("lenP").value;
 
-        document.getElementById("initials").maxlength = pLen;
-        initL=document.getElementById("initials").value;
-        initArr=initL.split('');
+        
 
 
         //Prints inputs to the html.
-        document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
+       // document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
         console.log(pLen);
 
         var count=pLen;
@@ -108,7 +106,7 @@
           message+=matchingElements[y]+ " ";
         }
 
-        document.getElementById("test").innerHTML =message; 
+        document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
        
         //Empty array in case user press button again. 
         matchingElements=[];
@@ -122,6 +120,17 @@
         document.getElementById("finMess").innerHTML =finalmessage; 
 
       }
+
+      //Function to generate acronym passphrase
+      function generateAcronym(){
+        //Code for acronym passphrase.
+
+        //document.getElementById("initials").maxlength = pLen;
+        //initL=document.getElementById("initials").value;
+        //initArr=initL.split('');
+
+      }
+
 
         //function searches for the correct word using the generated code. 
     

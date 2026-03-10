@@ -19,9 +19,22 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
 
   <body>
     
+    <header>
+
+      <h2 class="navbar"><a href="#">Dice Ware Passphrase Generator</a></h2>
+
+      <!--Navigation Links on navbar-->
+    <nav> 
+        <a href="#">Acronym Passphrase Generator</a>
+        <a href="#">How it Works</a>
+    </nav>
+
+   </header>
+    
+
     <h1>Welcome to the Dice Ware Passphrase Generator.</h1>
     <p>
-      The purpose of this website is to produce a secure Passphrase through the DiceWare algorithm.
+      This website generates a secure Passphrase through the DiceWare algorithm.</br>
       To select a word a dice is thrown a number of times, depending on the results it got a number is picked from a DiceWare Wordlist. 
       More information in the algorithm and the WordLists that can be used are available in the manual. 
       Besides generating a purely random passphrase it can also generate a Acronym passphrase.
@@ -34,9 +47,9 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     <p class="left">
 
     
-      1. First Input the .txt file with the Wordlist you will use. Remember it must follow the DiceWare Algorithm. <br><br>
-      2. Enter how many dice throws your Wordlist requires. The Wordlists provided use 5 Dice throws.<br><br>
-      3. Enter how many words you want the passphrase to contain. <br><br>
+      1. Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm. <br><br>
+      2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
+      3. Enter how many words you want the passphrase to have. In other words, the number of words in the passphrase. <br><br>
       4. Leave empty or enter the meaningful word to form the Acronym Passphrase. IT MUST HAVE AS MANY LETTERS AS THE PASSSPHRASE LENGTH YOU ENTERED IN THE PREVIOUS STEP.<br><br>
       5. Click on the Generate Button and see the results. <br><br>
 
@@ -45,12 +58,53 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     </p>
 
     <hr>
-    <h3 class="left">Enter: </h3>
 
+    <!--Generator section, includes the inputs and passphrase result -->
+    <section class="generator">
+      
+      
+      <div class="divPanel">
+        <h3 class="left">Enter: </h3>
+        <form action="#">
+      
+        <label for="fileIn">Input Wordlist here: </label>
+        <input type="file"  id="fileIn" name="fileInput"><br><br>
+        <label for="throws">Number of Dice Throws:</label>
+        <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
+        <label for="lenP">Passphrase Length:</label>
+        <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
+          
+        <!--
+        <tr>
+          <td>
+            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
+            <input type="text"  id="initials" name="initials" size="4"><br><br>
+            
+          </td>
+        </tr>
+      -->
+        </tc>
+      </table>
+
+      </div>
+
+      <div class="divPanel">
+        <h3 id="disLen"></h3>
+        <h3 id="test">Passphrase Generated:</h3>
+
+        <h2 class="result" id="test"></br></h2>
+          <form action="#">
+          <!--Generate button-->
+            <input id="genBut" type="button" value="Generate"/>
+          </form>
+        
+        <h3 id="finMess"></h3>
+      </div>
     
-    <!--Form Element, inputs-->
+    <!--Form Element, inputs
     <form action="#">
       <table class="centerTable">
+        <tc>
       
         <tr>
         <td>
@@ -80,22 +134,30 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
             
           </td>
         </tr>
+        </tc>
       </table>
 
         <h3 id="disLen"></h3>
-        <h3>Passphrase Generated:</h3>
+        <h3 id="test">Passphrase Generated:</h3>
+
         <h2 class="result" id="test"></h2>
           <form action="#">
-          <!--Generate button-->
+          
             <input id="genBut" type="button" value="Generate"/>
         
         <h3 id="finMess"></h3>
+          -->
+    </section>
+    
 
-        <script src="js/app.js"></script>
+    <script src="app.js"></script>
         
   </body>
 
   <footer>
-    <p>Created by Jose Luis Ron Coka. For comments contact me at: <a href="mailto:jr3412@mynsu.nova.edu">jr3412@mynsu.nova.edu</a></p>
+    <div>
+      <p>Created by Jose Luis Ron Coka. For comments contact me at: <a href="mailto:joseroncoka@gmail.com">joseroncoka@gmail.com</a></p>
+    </div>
+    
   </footer>
 </html>

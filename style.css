@@ -1,7 +1,63 @@
+header {
+      background-color: gray;
+      padding: 20px;
+      text-align: right;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-decoration: none;
+      h2 {
+        color: white;
+        margin: 2px;
+        text-decoration: none;
+      }
+      }
+
+
+
 body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
             font-size: 12pt;
             text-align: center;
             background-color: lightgray;}
+
+footer {
+      background-color: gray;
+      padding: 20px;
+      text-align: center;
+      color: white;
+      text-decoration: none;
+      a{
+            text-decoration: none;
+      }
+      }
+
+nav a {
+  text-decoration: none;
+  background-color: darkgray;
+  color: white;
+  padding: 8px 5px;
+  border-radius: 5px;
+}
+
+.navbar a {
+      text-decoration: none;
+      color: white;
+}
+
+.generator {
+  display: flex;
+  gap: 20px;
+  margin: 10px;
+}
+
+.divPanel{
+  padding: 20px;
+  border: 2px solid gray;
+  border-radius: 5px;
+  width:100%;
+  text-align: left;
+}
+      
 
       .button:hover {
         background-color: darkgrey; 
@@ -16,9 +72,18 @@ body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Luci
 
       table {text-align: center;}
 
-      input {font-size: 20px;
+      input {font-size: 15px;
             background-color: gray;
             color: white;}
+
+      input[type="button"] {
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            text-align: center;
+            display: block;
+            margin:  auto;
+      }
     
 
       .result{color: darkgoldenrod;}

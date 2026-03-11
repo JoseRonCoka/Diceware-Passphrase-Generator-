@@ -106,7 +106,8 @@
           message+=matchingElements[y]+ " ";
         }
 
-        document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
+        //document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
+        document.getElementById("result").innerHTML =message; 
        
         //Empty array in case user press button again. 
         matchingElements=[];

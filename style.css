@@ -86,4 +86,6 @@ nav a {
       }
     
 
-      .result{color: darkgoldenrod;}
+      .result{color: white;
+      background-color: grey;
+      padding: 10px;}

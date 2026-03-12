@@ -13,7 +13,7 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
 
     <!--Link to CSS and JS files-->
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
+    <!--<script type="module" src="app.js"></script>-->
       
   </head>
 
@@ -21,12 +21,12 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     
     <header>
 
-      <h2 class="navbar"><a href="#">Dice Ware Passphrase Generator</a></h2>
+      <h2 class="navbar"><a href="DiceWarePassphraseGenerator.html">Dice Ware Passphrase Generator</a></h2>
 
       <!--Navigation Links on navbar-->
     <nav> 
-        <a href="#">Acronym Passphrase Generator</a>
-        <a href="#">How it Works</a>
+        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a href="HowItWorks.html">How it Works</a>
     </nav>
 
    </header>
@@ -35,11 +35,10 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     <h1>Welcome to the Dice Ware Passphrase Generator.</h1>
     <p>
       This website generates a secure Passphrase through the DiceWare algorithm.</br>
-      To select a word a dice is thrown a number of times, depending on the results it got a number is picked from a DiceWare Wordlist. 
-      More information in the algorithm and the WordLists that can be used are available in the manual. 
-      Besides generating a purely random passphrase it can also generate a Acronym passphrase.
-      Meaning you can enter a meaningful word to you, and the Passphrase generated will be made up by words
-      that start with each of the characters that the word you enter contain. This should make it easier to remember. 
+      A dice is thrown a number of times, this results in a number that can be matched to a word in a DiceWare Wordlist.</br>
+      More information in the algorithm and the WordLists that can be used are available in the How It Works page. </br>
+      The more words the passphrase has, the more secure it is. However, it is also harder to remember.</br>
+      Try to find a balance between security and memorability.</br>
     </p>
     <hr>
     <h3 class="left">Steps:</h3>
@@ -49,9 +48,8 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     
       1. Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm. <br><br>
       2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
-      3. Enter how many words you want the passphrase to have. In other words, the number of words in the passphrase. <br><br>
-      4. Leave empty or enter the meaningful word to form the Acronym Passphrase. IT MUST HAVE AS MANY LETTERS AS THE PASSSPHRASE LENGTH YOU ENTERED IN THE PREVIOUS STEP.<br><br>
-      5. Click on the Generate Button and see the results. <br><br>
+      3. Enter how long you want the passphrase to be. In other words, the number of words in the passphrase. <br><br>
+      4. Click on the Generate Button and see the results. <br><br>
 
       TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 5. <br><br>
       TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 5.<br><br>
@@ -150,7 +148,7 @@ History: Version 1.0 December 10, 2022. First Fully working prototype-->
     </section>
     
 
-    <script src="app.js"></script>
+    <script type="module" src="./app.js"></script>
         
   </body>
 

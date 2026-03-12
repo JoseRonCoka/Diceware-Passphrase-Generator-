@@ -1,0 +1,159 @@
+<!--File: AcronymPassphraseGenerator.html
+Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
+Author: Jose Ron Coka
+History: Version 2.0 March 11 2026
+Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Acronym Passphrase Generator</title>
+
+    <!--Link to CSS and JS files-->
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="app.js"></script>-->
+      
+  </head>
+
+  <body>
+    
+    <header>
+
+      <h2 class="navbar"><a href="DiceWarePassphraseGenerator.html">Dice Ware Passphrase Generator</a></h2>
+
+      <!--Navigation Links on navbar-->
+    <nav> 
+        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a href="HowItWorks.html">How it Works</a>
+    </nav>
+
+   </header>
+    
+
+    <h1>Welcome to the Acronym Passphrase Generator.</h1>
+    <p>
+      This generator gives you an Acronym Passphrase Generator</br>
+      It works the same as the Dice Ware Passphrase generator.</br> 
+      But instead of generating a purely random passphrase it generates a Acronym passphrase.</br>
+      Meaning you can enter a meaningful word to you, and a Passphrase will be generated with words</br>
+      that start with each of the characters that make up the word you entered. </br>
+      While you lose randomness, knowing the initials of every word of the passphrase makes it easier to remember.</br> 
+    </p>
+    <hr>
+    <h3 class="left">Steps:</h3>
+
+    <p class="left">
+
+    
+      1. Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm. <br><br>
+      2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
+      3. Enter the meaningful word to form the Acronym Passphrase. Remember the passphrase's length will match the number of letters in the word you enter.<br><br>
+      4. Click on the Generate Button and see the results. <br><br>
+
+      TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 5. <br><br>
+      TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 5.<br><br>
+    </p>
+
+    <hr>
+
+    <!--Generator section, includes the inputs and passphrase result -->
+    <section class="generator">
+      
+      
+      <div class="divPanel">
+        <h3 class="left">Enter: </h3>
+        <form action="#">
+      
+        <label for="fileIn">Input Wordlist here: </label>
+        <input type="file"  id="fileIn" name="fileInput"><br><br>
+        <label for="throws">Number of Dice Throws:</label>
+        <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
+        <label for="initials">Enter the word with the initials you want your passphrase to be formed by:</label>
+        <input type="text"  id="initials" name="initials" size="4"><br><br>
+
+        <!--
+        <label for="lenP">Passphrase Length:</label>
+        <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
+        -->
+    
+        </tc>
+      </table>
+
+      </div>
+
+      <div class="divPanel">
+        <h3 id="disLen"></h3>
+        <h3 id="test">Passphrase Generated:</h3>
+
+        <h2 class="result" id="result"></br></h2>
+          <form action="#">
+          <!--Generate button-->
+            <input id="genAcrBut" type="button" value="Generate"/>
+          </form>
+        
+        <h3 id="finMess"></h3>
+      </div>
+    
+    <!--Form Element, inputs
+    <form action="#">
+      <table class="centerTable">
+        <tc>
+      
+        <tr>
+        <td>
+          <label for="fileIn">Input Wordlist here: </label>
+        <input type="file"  id="fileIn" name="fileInput"><br><br>
+          
+        </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="throws">Number of Dice Throws:</label>
+            <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="lenP">Passphrase Length:</label>
+            <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
+            
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
+            <input type="text"  id="initials" name="initials" size="4"><br><br>
+            
+          </td>
+        </tr>
+        </tc>
+      </table>
+
+        <h3 id="disLen"></h3>
+        <h3 id="test">Passphrase Generated:</h3>
+
+        <h2 class="result" id="test"></h2>
+          <form action="#">
+          
+            <input id="genBut" type="button" value="Generate"/>
+        
+        <h3 id="finMess"></h3>
+          -->
+    </section>
+    
+
+    <script type="module" src="./app.js"></script>
+        
+  </body>
+
+  <footer>
+    <div>
+      <p>Created by Jose Luis Ron Coka. For comments contact me at: <a href="mailto:joseroncoka@gmail.com">joseroncoka@gmail.com</a></p>
+    </div>
+    
+  </footer>
+</html>

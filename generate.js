@@ -191,5 +191,13 @@
      
       //Function diceRoll returns a random number between 1 and 6. 
      function diceRoll(){
-        return 1 + Math.floor(Math.random() * 6);
+        //return 1 + Math.floor(Math.random() * 6);
+        return cryptoRoll();
+     }
+
+     function cryptoRoll(){
+      const array = new Uint32Array(1);
+      window.crypto.getRandomValues(array);
+      //console.log("Crypto roll: "+array);
+      return (array[0] % 6) + 1;
      }

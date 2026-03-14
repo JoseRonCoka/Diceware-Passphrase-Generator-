@@ -76,17 +76,23 @@
         console.log(pLen);
         var message = generateFunc(words,numT,pLen);
 
+       
         //document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
         document.getElementById("result").innerHTML =message; 
-      
-
+        
         //Final message is printed
-        var finalmessage="If you are good with the generated passphrase and wish to use it, "; 
+        var finalmessage="If you are happy with the generated passphrase, "; 
         finalmessage+="we recommend that you save a copy of it, either on a Password Manager or ";
-        finalmessage+="write it in a piece of paper and store it in a safe place. Then take a little time to try to memorize it.";;
-        finalmessage+="To use it for some accounts you might need to meet requirements like adding numbers and symbols.";
-    
-        document.getElementById("finMess").innerHTML =finalmessage; 
+        finalmessage+="write it down in a piece of paper and store it in a safe place. Then take time to memorize it.";
+        finalmessage+="To use it for some online accounts you might need to add numbers and symbols to it.";
+        finalmessage+="This will make the passphrase more secure.";
+
+        //Calculate Entropy entropy = log₂(pool_size) × word_count
+        const entropy = Math.round(Math.log2(words.length)*pLen);
+        document.getElementById("entropyResult").innerHTML ="Entropy of the generated passphrase: "+ entropy + " bits.";
+        document.getElementById("strength").innerHTML ="Strength of the generated passphrase: "+ strengthCalc(entropy) + ".";
+      
+        document.getElementById("finalRec").innerHTML =finalmessage; 
       }
 
 
@@ -108,6 +114,8 @@
         console.log(pLen);
         console.log(initArr);
         var message = generateAcronym(words,numT,initL);
+        const poolSizes = buildLetterPoolSizes(words);
+        const acronymEntropy = calculateAcronymEntropy(initL, poolSizes);
 
         //document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
         document.getElementById("result").innerHTML =message; 
@@ -119,8 +127,58 @@
         finalmessage+="write it in a piece of paper and store it in a safe place. Then take a little time to try to memorize it.";;
         finalmessage+="To use it for some accounts you might need to meet requirements like adding numbers and symbols.";
     
-        document.getElementById("finMess").innerHTML =finalmessage; 
+        //Calculate Entropy entropy = log₂(pool_size) × word_count
+        //const entropy = Math.round(Math.log2(words.length)*pLen);
+        document.getElementById("entropyResult").innerHTML ="Entropy of the generated passphrase: "+ acronymEntropy + " bits.";
+        document.getElementById("strength").innerHTML ="Strength of the generated passphrase: "+ strengthCalc(acronymEntropy) + ".";
+      
+        document.getElementById("finalRec").innerHTML =finalmessage; 
       }
+
+      //Entropy Acronym calculation functions
+      //Extracts the first word of each letter on the word list and counts how many words start with each letter, this will be the pool size for each letter.
+      function buildLetterPoolSizes(wordlist) {
+              //Plain Obj, stores items with key as the letter and value as the number of words that start with that letter.
+              const poolSizes = {};
+              for (const listword of Object.values(wordlist)) {
+                const word = listword[1].toLowerCase();
+                const letter = word.charAt(0);
+                console.log("Doing poolsizes for letter: "+letter);
+                //Adds 1 instance to the pool of the given letter
+                //Each item in an obj is stored as a key value pair, meaning we cannot get repeats since each word gets assigned to its starting letter key. 
+                poolSizes[letter] = (poolSizes[letter] || 0) + 1; //Safeguard in case there are letters with no words, or operator will assign 0 to them.
+              }
+              console.log(poolSizes);
+              return poolSizes;
+            }
+
+      // Calculate entropy for acronym mode
+      function calculateAcronymEntropy(seedWord, poolSizes) {
+        const letters = seedWord.toLowerCase().split('');
+        return Math.round(
+        
+          //Resuce method iterates through the letters of the acronym, for each letter it gets the pool size from the poolSizes object and calculates log2 of it.
+          //Therefore it is adding the entropy of each individual letter to get the total entropy.
+        letters.reduce((total, letter) => {
+          const poolSize = poolSizes[letter] || 1;
+          return total + Math.log2(poolSize);
+          }, 0)
+        );
+      }     
+
+  
+      //Function to calculate strength of the passphrase based on entropy, returns a string with the strength and recommendations.
+      function strengthCalc(entropy){
+        if (entropy < 40) 
+          return "<strong>Weak</strong>. <br> We recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> If you want to use this passphrase, we recommend that you add numbers, symbols and capitalization to it.";
+        if (entropy < 60) 
+          return "<strong>Moderate</strong>. <br> If you want to use this passphrase for a high value account, we recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> Adding numbers, symbols and capitalization will make it stronger";
+        if (entropy < 80) 
+          return "<strong>Strong</strong>. <br> Adding numbers, symbols and capitalization will make it even stronger.";
+        return "<strong>Very Strong</strong>.";
+      }
+
+
 
     //Loads start function when page is loaded.
      window.addEventListener("load",start,false);

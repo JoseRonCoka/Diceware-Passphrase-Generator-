@@ -35,12 +35,11 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
 
     <h1>Welcome to the Acronym Passphrase Generator.</h1>
     <p>
-      This generator gives you an Acronym Passphrase Generator</br>
-      It works the same as the Dice Ware Passphrase generator.</br> 
+      This generator gives you an Acronym Passphrase Generator. It works similarly to the Dice Ware Passphrase generator.</br> 
       But instead of generating a purely random passphrase it generates a Acronym passphrase.</br>
-      Meaning you can enter a meaningful word to you, and a Passphrase will be generated with words</br>
+      You can enter a meaningful word to you, and a Passphrase will be generated with random words</br>
       that start with each of the characters that make up the word you entered. </br>
-      While you lose randomness, knowing the initials of every word of the passphrase makes it easier to remember.</br> 
+      This means you lose randomness, therefore  knowing the initials of every word of the passphrase makes it easier to remember.</br> 
     </p>
     <hr>
     <h3 class="left">Steps:</h3>
@@ -52,9 +51,6 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
       3. Enter the meaningful word to form the Acronym Passphrase. Remember the passphrase's length will match the number of letters in the word you enter.<br><br>
       4. Click on the Generate Button and see the results. <br><br>
-
-      TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 5. <br><br>
-      TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 5.<br><br>
     </p>
 
     <hr>
@@ -74,14 +70,7 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
         <label for="initials">Enter the word with the initials you want your passphrase to be formed by:</label>
         <input type="text"  id="initials" name="initials" size="4"><br><br>
 
-        <!--
-        <label for="lenP">Passphrase Length:</label>
-        <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
-        -->
-    
-        </tc>
-      </table>
-
+  
       </div>
 
       <div class="divPanel">
@@ -96,55 +85,20 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
         
         <h3 id="finMess"></h3>
       </div>
-    
-    <!--Form Element, inputs
-    <form action="#">
-      <table class="centerTable">
-        <tc>
-      
-        <tr>
-        <td>
-          <label for="fileIn">Input Wordlist here: </label>
-        <input type="file"  id="fileIn" name="fileInput"><br><br>
-          
-        </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="throws">Number of Dice Throws:</label>
-            <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
-            
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="lenP">Passphrase Length:</label>
-            <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
-            
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
-            <input type="text"  id="initials" name="initials" size="4"><br><br>
-            
-          </td>
-        </tr>
-        </tc>
-      </table>
-
-        <h3 id="disLen"></h3>
-        <h3 id="test">Passphrase Generated:</h3>
-
-        <h2 class="result" id="test"></h2>
-          <form action="#">
-          
-            <input id="genBut" type="button" value="Generate"/>
-        
-        <h3 id="finMess"></h3>
-          -->
     </section>
-    
+
+    <section class="entropy">
+      <h2 class="left">Entropy Calculation:</h2>
+      <h3 class="left" id="entropyResult"></h3>
+
+      <p id="strength" class="left"></p>
+      <p id="finalRec"class="left"></p>
+        
+      <p> 
+        TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 4. <br><br>
+        TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 4.<br><br>
+      </p>
+    <section>
 
     <script type="module" src="./app.js"></script>
         

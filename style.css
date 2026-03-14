@@ -1,3 +1,9 @@
+/*File: DiceWarePassphraseGenerator.html
+/*Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
+/*Author: Jose Ron Coka
+/*History: Version 1.0 December 10, 2022. First Fully working prototype-->*/
+
+
 header {
       background-color: gray;
       padding: 20px;
@@ -26,9 +32,15 @@ footer {
       text-align: center;
       color: white;
       text-decoration: none;
-      a{
-            text-decoration: none;
       }
+
+a:hover{
+      color: lightgray
+}
+
+footer a {
+      color: white;
+      text-decoration: none;
       }
 
 nav a {
@@ -48,6 +60,10 @@ nav a {
   display: flex;
   gap: 20px;
   margin: 10px;
+}
+
+.entropy {
+  font-size: 13pt;
 }
 
 .divPanel{

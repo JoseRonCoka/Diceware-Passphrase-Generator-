@@ -3,105 +3,212 @@
 /*Author: Jose Ron Coka
 /*History: Version 1.0 December 10, 2022. First Fully working prototype-->*/
 
+/* ===== CSS Reset ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* My Styles */
 
 header {
-      background-color: gray;
-      padding: 20px;
-      text-align: right;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      text-decoration: none;
-      h2 {
-        color: white;
-        margin: 2px;
-        text-decoration: none;
-      }
-      }
+  background-color: gray;
+  padding: 2rem 3rem;
+  text-align: right;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  h2 {
+    color: white;
+    margin: 0.5rem;
+    text-decoration: none;
+  }
+}
 
-
-
-body {font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-            font-size: 12pt;
-            text-align: center;
-            background-color: lightgray;}
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  font-size: 1rem;
+  text-align: center;
+  background-color: lightgray;
+}
 
 footer {
-      background-color: gray;
-      padding: 20px;
-      text-align: center;
-      color: white;
-      text-decoration: none;
-      }
+  background-color: gray;
+  padding: 2rem 2rem;
+  text-align: center;
+  color: white;
+  text-decoration: none;
+  width: 100%;
+}
 
-a:hover{
-      color: lightgray
+a:hover {
+  color: lightgray;
 }
 
 footer a {
-      color: white;
-      text-decoration: none;
-      }
+  color: white;
+  text-decoration: none;
+}
 
 nav a {
   text-decoration: none;
   background-color: darkgray;
   color: white;
-  padding: 8px 5px;
+  padding: 1rem 1rem; /*8px 5px;*/
   border-radius: 5px;
 }
 
 .navbar a {
-      text-decoration: none;
-      color: white;
+  text-decoration: none;
+  color: white;
+}
+
+/*sections */
+
+.introduction {
+  width: 100%;
+  padding: 1rem 1rem;
+  p {
+    text-align: justify;
+  }
+}
+
+.steps {
+  width: 100%;
+  padding: 1rem 1rem;
+  background-color: whitesmoke;
 }
 
 .generator {
   display: flex;
   gap: 20px;
-  margin: 10px;
+  padding: 1rem 1rem;
 }
 
 .entropy {
-  font-size: 13pt;
+  font-size: 1rem;
+  background-color: whitesmoke;
+  padding: 1rem 1rem;
 }
 
-.divPanel{
+.divPanel {
   padding: 20px;
   border: 2px solid gray;
   border-radius: 5px;
-  width:100%;
+  width: 100%;
   text-align: left;
 }
-      
 
-      .button:hover {
-        background-color: darkgrey; 
-        color: white;
-        }
+.whiteSection {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: whitesmoke;
+  p {
+    text-align: justify;
+  }
+}
 
-      .center {text-align: center;}
-      .centerTable {margin-left: auto;
-                    margin-right: auto;}
+.graySection {
+  width: 100%;
+  padding: 2rem 1rem;
+  background-color: lightgrey;
+  p {
+    text-align: justify;
+  }
+}
 
-      .left {text-align: left;}
+.button:hover {
+  background-color: lightgray;
+  color: gray;
+}
 
-      table {text-align: center;}
+.center {
+  text-align: center;
+}
+.centerTable {
+  margin-left: auto;
+  margin-right: auto;
+}
 
-      input {font-size: 15px;
-            background-color: gray;
-            color: white;}
+.left {
+  text-align: left;
+}
 
-      input[type="button"] {
-            padding: 10px 20px;
-            border-radius: 5px;
-            cursor: pointer;
-            text-align: center;
-            display: block;
-            margin:  auto;
-      }
-    
+table {
+  text-align: center;
+}
 
-      .result{color: white;
-      background-color: grey;
-      padding: 10px;}
+input {
+  font-size: 15px;
+  background-color: gray;
+  color: white;
+}
+
+input[type="button"] {
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+.result {
+  color: white;
+  background-color: grey;
+  padding: 10px;
+}
+
+/* Image css */
+.image-container {
+  display: flex;
+  gap: 1rem; /* space between images */
+  justify-content: center; /* centre them horizontally */
+  align-items: center; /* align them vertically */
+}
+
+.image-container img {
+  width: 30%; /* each image takes up 30% of container */
+  max-width: 300px; /* never gets bigger than 300px */
+  height: auto; /* maintains aspect ratio */
+  border-radius: 8px; /* optional — rounds corners */
+}

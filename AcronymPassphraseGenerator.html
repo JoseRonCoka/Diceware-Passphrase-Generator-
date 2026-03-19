@@ -26,14 +26,15 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
 
       <!--Navigation Links on navbar-->
     <nav> 
-        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-        <a href="HowItWorks.html">How it Works</a>
+        <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a class="button" href="HowItWorks.html">How it Works</a>
     </nav>
 
    </header>
     
-
+    <section class="introduction">
     <h1>Welcome to the Acronym Passphrase Generator.</h1>
+    <br>
     <p>
       This generator gives you an Acronym Passphrase Generator. It works similarly to the Dice Ware Passphrase generator.</br> 
       But instead of generating a purely random passphrase it generates a Acronym passphrase.</br>
@@ -41,7 +42,9 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       that start with each of the characters that make up the word you entered. </br>
       This means you lose randomness, therefore  knowing the initials of every word of the passphrase makes it easier to remember.</br> 
     </p>
-    <hr>
+    </section>
+
+    <section class="steps">
     <h3 class="left">Steps:</h3>
 
     <p class="left">
@@ -52,8 +55,8 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       3. Enter the meaningful word to form the Acronym Passphrase. Remember the passphrase's length will match the number of letters in the word you enter.<br><br>
       4. Click on the Generate Button and see the results. <br><br>
     </p>
+    </section>
 
-    <hr>
 
     <!--Generator section, includes the inputs and passphrase result -->
     <section class="generator">
@@ -61,6 +64,7 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       
       <div class="divPanel">
         <h3 class="left">Enter: </h3>
+          <br>
         <form action="#">
       
         <label for="fileIn">Input Wordlist here: </label>
@@ -76,10 +80,11 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       <div class="divPanel">
         <h3 id="disLen"></h3>
         <h3 id="test">Passphrase Generated:</h3>
-
+          <br>
         <h2 class="result" id="result"></br></h2>
           <form action="#">
           <!--Generate button-->
+          <br>
             <input id="genAcrBut" type="button" value="Generate"/>
           </form>
         
@@ -98,7 +103,8 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
         TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 4. <br><br>
         TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 4.<br><br>
       </p>
-    <section>
+    </section>
+    </body>
 
     <script type="module" src="./app.js"></script>
         

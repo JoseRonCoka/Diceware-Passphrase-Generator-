@@ -26,134 +26,98 @@ Page: How It Works, explains the algorithm.-->
 
       <!--Navigation Links on navbar-->
     <nav> 
-        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-        <a href="HowItWorks.html">How it Works</a>
+        <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a class="button" href="HowItWorks.html">How it Works</a>
     </nav>
 
    </header>
     
-
-    <h1>How It Works?</h1>
-    <!--
+    <section class="graySection">
+    <h1>Why Passphrases?</h1>
+    <br>
     <p>
-      This website generates a secure Passphrase through the DiceWare algorithm.</br>
-      To select a word a dice is thrown a number of times, depending on the results it got a number is picked from a DiceWare Wordlist. 
-      More information in the algorithm and the WordLists that can be used are available in the manual. 
-      Besides generating a purely random passphrase it can also generate a Acronym passphrase.
-      Meaning you can enter a meaningful word to you, and the Passphrase generated will be made up by words
-      that start with each of the characters that the word you enter contain. This should make it easier to remember. 
+      User authentication is a critical aspect of cybersecurity.  It has evolved from methods like simple passwords to two step verifications, physical key, biometrics, etc.
+      Passwords are still the most popular even though they can also be the least safe. Tools like John the Ripper can brute force a simple password in a few seconds. 
+      Because of this passwords todaymust be hard to crack. Most platforms ask for a combination of items to include, like numbers, symbols, capital letters and more. 
+      Passwords generators exist today, you can search one online and get an extremely hard to crack password like: 54vHMW1!, which I got from LastPass.com. 
+
+      A random generated password is not practical, because a random combination of characters is almost impossible to remember. 	
+      The only practical way to use random generated passwords is by also using a password manager. 
+      However, passwords managers are still susceptible to attacks and usually is not free software. 
     </p>
-    <hr>
-    <h3 class="left">Steps:</h3>
-
-    <p class="left">
-
-    
-      1. Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm. <br><br>
-      2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
-      3. Enter how many words you want the passphrase to have. In other words, the number of words in the passphrase. <br><br>
-      4. Leave empty or enter the meaningful word to form the Acronym Passphrase. IT MUST HAVE AS MANY LETTERS AS THE PASSSPHRASE LENGTH YOU ENTERED IN THE PREVIOUS STEP.<br><br>
-      5. Click on the Generate Button and see the results. <br><br>
-
-      TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 5. <br><br>
-      TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 5.<br><br>
-    </p>
-
-    <hr>
-    -->
-
-    <!--Generator section, includes the inputs and passphrase result -->
-    <!--
-    <section class="generator">
-      
-      
-      <div class="divPanel">
-        <h3 class="left">Enter: </h3>
-        <form action="#">
-      
-        <label for="fileIn">Input Wordlist here: </label>
-        <input type="file"  id="fileIn" name="fileInput"><br><br>
-        <label for="throws">Number of Dice Throws:</label>
-        <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
-        <label for="lenP">Passphrase Length:</label>
-        <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
-          -->
-        <!--
-        <tr>
-          <td>
-            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
-            <input type="text"  id="initials" name="initials" size="4"><br><br>
-            
-          </td>
-        </tr>
-      -->
-        <!--
-        </tc>
-      </table>
-
-      </div>
-
-      <div class="divPanel">
-        <h3 id="disLen"></h3>
-        <h3 id="test">Passphrase Generated:</h3>
-
-        <h2 class="result" id="result"></br></h2>
-          <form action="#">-->
-          <!--Generate button
-            <input id="genBut" type="button" value="Generate"/>
-          </form>
-        
-        <h3 id="finMess"></h3>
-      </div>-->
-    
-    <!--Form Element, inputs
-    <form action="#">
-      <table class="centerTable">
-        <tc>
-      
-        <tr>
-        <td>
-          <label for="fileIn">Input Wordlist here: </label>
-        <input type="file"  id="fileIn" name="fileInput"><br><br>
-          
-        </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="throws">Number of Dice Throws:</label>
-            <input type="text"  id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
-            
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="lenP">Passphrase Length:</label>
-            <input type="text"  id="lenP" name="length" maxlength="1" size="4"><br><br>
-            
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label for="initials">Leave empty or Enter the word with the initials you want your passphrase to be formed by:</label>
-            <input type="text"  id="initials" name="initials" size="4"><br><br>
-            
-          </td>
-        </tr>
-        </tc>
-      </table>
-
-        <h3 id="disLen"></h3>
-        <h3 id="test">Passphrase Generated:</h3>
-
-        <h2 class="result" id="test"></h2>
-          <form action="#">
-          
-            <input id="genBut" type="button" value="Generate"/>
-        
-        <h3 id="finMess"></h3>
-          -->
     </section>
+
+    <section class="whiteSection">
     
+    <h2>How the DiceWare Algorithm works?</h2>
+    <br>
+    <p>
+      A password that is predictable is very easy to crack. We need to use random passwords that hard to guess, but humans are terrible at randomness. 
+      This is where the DiceWare algorithm comes in, it generates a completely random passphrase that is easy to remember and hard to crack. 
+      It is called DiceWare because it uses dice to generate random numbers, which are then used to select words from a wordlist.
+      Using a valid DiceWare wordlist and one dice you can generate a passphrase on your own, you just need to throw the dice a number of times and then match the resulting number with the list. 
+    </p>
+    <br>
+    
+    
+    <p>
+      For example, let's say you throw the dice 5 times and get the following numbers.
+    </p>
+
+    <div class="image-container">
+    <img src="image1.png" alt="dice resulting in 1">
+    <img src="image2.png" alt="dice resulting in 2">
+    <img src="image3.png" alt="dice resulting in 3">
+    <img src="image1.png" alt="dice resulting in 5">
+    <img src="image2.png" alt="dice resulting in 1">
+    </div>
+
+    <p>
+      1, 2, 3, 5, 1, you would look up the number 12345 in the wordlist and find the corresponding word.
+      Inside the default wordlist provided with this project, the word corresponding to the number 12345 is "array".
+    </p>
+
+
+
+
+    </section>
+
+    <section class="graySection">
+    <h2>How the Passphrase Generator works?</h2>
+    <br>
+    <p>
+      The program generates a random number between 1 and 6, simulating a dice throw. The number of times the dice is thrown depends on the Wordlist you are using. 
+      The number is cryptographically random, generated by the Web Crypto API, which is a JavaScript API for performing core cryptographic operations in web applications. 
+      The results of the dice throws form a number, which the program looks up in the Wordlist to find the corresponding word. 
+      This process is repeated until the passphrase has the number of words you specified.
+    </p>
+    </section>
+
+    <section class="whiteSection">
+    <h2>How the Acronym Passphrase Generator Works</h2>
+    <br>
+    <p>
+      It takes a word as input from the user, and generates a passphrase with random words that start with each of the characters that make up the word you entered.
+      It uses the same process as the DiceWare Algorithm, it keeps generating random number until it finds a word that starts with the character it needs, and so on.
+      The result is a passphrase with as many words as the number of characters in the input word.
+      Since the words selected are not 100% random the generated passphrase has less entropy, which means it is less secure. 
+      You are trading security for memorability, because of this a longer input word is recommended. 
+      Furthermore, adding symbols, capitalization and numbers can also increase how secure the acronym passphrase is.
+      It is up to you to decide whether the trade off is worth it. 
+    </p>
+    </section>
+
+    <section class="graySection">
+    <h2>What is entropy?</h2>
+    <br>
+    <p>
+      Entropy is a measure of randomness or unpredictability. It is a key concept in Cybersecurity, for password strength entropy shows the unpredictability of a password and therefore how hard it is to break. 
+      The more random a password is the higher its entropy and the harder it is to crack. Passwords with low entropy can be cracked easily with brute force attacks.
+      These attacks check every possible combination of characters until they find the correct one.
+      A password with high entropy is more resistant to brute force attacks, because it has more possible combinations. 
+      The entropy of a password can be calculated using the formula: E = log2(N^L), where N is the number of possible characters and L is the length of the password.
+    </p>
+    </section>
 
     <script src="app.js"></script>
         

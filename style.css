@@ -72,22 +72,60 @@ body {
 }
 
 footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background-color: gray;
-  padding: 2rem 2rem;
-  text-align: center;
+  padding: 0rem 0.5rem;
   color: white;
   text-decoration: none;
   width: 100%;
+}
+
+footer div{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  text-align: right;
+  padding: 0.25rem 0.25rem;
+  /*border: 2px black solid;*/
+  width: 100%;
+  text-decoration: none;
+
+  a{
+    text-decoration: none;
+    color: white;
+  }
+}
+
+footer div a img{
+  display:flex;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+/*
+.logoLink {
+  position:absolute;
+  right: 0;
+  bottom:0;
+}
+  */
+
+.footerLink {
+  width: 100%;
+  display:flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
 
 a:hover {
   color: lightgray;
 }
 
-footer a {
-  color: white;
-  text-decoration: none;
-}
 
 nav a {
   text-decoration: none;

@@ -55,6 +55,7 @@ header {
   justify-content: space-between;
   align-items: center;
   text-decoration: none;
+
   h2 {
     color: white;
     margin: 0.5rem;
@@ -67,8 +68,12 @@ body {
     "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
     Arial, sans-serif;
   font-size: 1rem;
-  text-align: center;
+  text-align: justify;
   background-color: lightgray;
+
+  h1 {
+    text-align: center;
+  }
 }
 
 footer {
@@ -76,46 +81,39 @@ footer {
   align-items: center;
   justify-content: center;
   background-color: gray;
-  padding: 0rem 0.5rem;
+  padding: 1rem 1rem;
   color: white;
   text-decoration: none;
+  font-size: 0.95rem;
   width: 100%;
 }
 
-footer div{
+footer div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  text-align: right;
+  text-align: center;
   padding: 0.25rem 0.25rem;
   /*border: 2px black solid;*/
   width: 100%;
   text-decoration: none;
 
-  a{
+  a {
     text-decoration: none;
     color: white;
   }
 }
 
-footer div a img{
-  display:flex;
+footer div a img {
+  display: flex;
   justify-content: center;
   align-items: flex-end;
-
 }
-/*
-.logoLink {
-  position:absolute;
-  right: 0;
-  bottom:0;
-}
-  */
 
 .footerLink {
   width: 100%;
-  display:flex;
+  display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
@@ -126,12 +124,19 @@ a:hover {
   color: lightgray;
 }
 
+nav {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: center;
+}
 
 nav a {
   text-decoration: none;
   background-color: darkgray;
   color: white;
-  padding: 1rem 1rem; /*8px 5px;*/
+  padding: 1rem 1rem;
+  /*8px 5px;*/
   border-radius: 5px;
 }
 
@@ -145,9 +150,15 @@ nav a {
 .introduction {
   width: 100%;
   padding: 1rem 1rem;
+
   p {
     text-align: justify;
   }
+}
+
+.introduction p a {
+  text-decoration: underline;
+  color: black;
 }
 
 .steps {
@@ -160,6 +171,7 @@ nav a {
   display: flex;
   gap: 20px;
   padding: 1rem 1rem;
+  width: 100%;
 }
 
 .entropy {
@@ -169,7 +181,7 @@ nav a {
 }
 
 .divPanel {
-  padding: 20px;
+  padding: 1rem 1rem;
   border: 2px solid gray;
   border-radius: 5px;
   width: 100%;
@@ -180,6 +192,7 @@ nav a {
   width: 100%;
   padding: 2rem 1rem;
   background-color: whitesmoke;
+
   p {
     text-align: justify;
   }
@@ -187,11 +200,20 @@ nav a {
 
 .graySection {
   width: 100%;
-  padding: 2rem 1rem;
+  padding: 1rem 1rem;
   background-color: lightgrey;
+
   p {
     text-align: justify;
   }
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.button {
+  font-weight: bold;
 }
 
 .button:hover {
@@ -202,6 +224,7 @@ nav a {
 .center {
   text-align: center;
 }
+
 .centerTable {
   margin-left: auto;
   margin-right: auto;
@@ -216,13 +239,13 @@ table {
 }
 
 input {
-  font-size: 15px;
+  font-size: 1rem;
   background-color: gray;
   color: white;
 }
 
 input[type="button"] {
-  padding: 10px 20px;
+  padding: 1rem 2rem;
   border-radius: 5px;
   cursor: pointer;
   text-align: center;
@@ -233,20 +256,27 @@ input[type="button"] {
 .result {
   color: white;
   background-color: grey;
-  padding: 10px;
+  padding: 1rem;
 }
 
 /* Image css */
 .image-container {
   display: flex;
-  gap: 1rem; /* space between images */
-  justify-content: center; /* centre them horizontally */
-  align-items: center; /* align them vertically */
+  gap: 1rem;
+  /* space between images */
+  justify-content: center;
+  /* centre them horizontally */
+  align-items: center;
+  /* align them vertically */
 }
 
 .image-container img {
-  width: 30%; /* each image takes up 30% of container */
-  max-width: 300px; /* never gets bigger than 300px */
-  height: auto; /* maintains aspect ratio */
-  border-radius: 8px; /* optional — rounds corners */
+  width: 30%;
+  /* each image takes up 30% of container */
+  max-width: 300px;
+  /* never gets bigger than 300px */
+  height: auto;
+  /* maintains aspect ratio */
+  border-radius: 8px;
+  /* optional — rounds corners */
 }

@@ -1,184 +1,180 @@
 //File: app.js
-//Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
+//Project: Intro Cybersecurity Project Dice Ware Passphrase Generator.
 //Author: Jose Ron Coka
 //History: Version 2.0 March 11 2026
 //This should be the main javascript file, handles all the logic of navigation
-//The passphrase generating logic must be moved to a different file and imported here. 
+//The passphrase generating logic must be moved to a different file and imported here.
 
- 
- 
- 
- //Setting up global variables. 
-      var pLen;
-      var numT;
-      var initL;
-      var initArr=[];
-      
-      const words = []; // array to store the words
-      var matchingElements = []; //array to store the matching words to the dice throws
-      
-      //Import required functions from generate.js
-      import { generateFunc } from "./generate.js";
-      import { generateAcronym } from "./generate.js";
+//Setting up global variables.
+var pLen;
+var numT;
+var initL;
+var initArr = [];
 
-        
-      function start() {
-        
-        //Reads input .txt file with the wordlist.
-        const fileInput= document.getElementById('fileIn');
+const words = []; // array to store the words
+var matchingElements = []; //array to store the matching words to the dice throws
 
-        fileInput.addEventListener('change', () => {
+//Import required functions from generate.js
+import { generateFunc } from "./generate.js";
+import { generateAcronym } from "./generate.js";
 
-        const fr= new FileReader();
-        fr.readAsText(fileInput.files[0]);
+function start() {
+  //Reads input .txt file with the wordlist.
+  const fileInput = document.getElementById("fileIn");
 
-        fr.addEventListener('load',() => {
-          console.log(fr.result);
+  fileInput.addEventListener("change", () => {
+    const fr = new FileReader();
+    fr.readAsText(fileInput.files[0]);
 
-          const lines = fr.result.split('\n');
-          //const lines = split.replace('\r','');
-          // Loop through the lines and split each line by spaces
-        for (const line of lines) {
-            const wordPairs = line.split('\t'); // split the line by spaces
-            words.push(wordPairs);
-           }
-           console.log(words);
-        })
-      })
+    fr.addEventListener("load", () => {
+      console.log(fr.result);
 
-      
-      //We need to check that the button exists before adding event listener, otherwise it will give an error.
-        const genButton = document.getElementById("genBut");
-        if (genButton){
-          genButton.addEventListener("click",extract);
-        }
-
-      //Listener for Acronym button
-        const genAcrButton = document.getElementById("genAcrBut");
-        if (genAcrButton){
-          genAcrButton.addEventListener("click",extractAcr);
-        }
-
+      const lines = fr.result.split("\n");
+      //const lines = split.replace('\r','');
+      // Loop through the lines and split each line by spaces
+      for (const line of lines) {
+        const wordPairs = line.split("\t"); // split the line by spaces
+        words.push(wordPairs);
       }
+      console.log(words);
+    });
+  });
 
-      
-      
-      //Function Extracts input information and calls the generate function.
-      function extract(){
+  //We need to check that the button exists before adding event listener, otherwise it will give an error.
+  const genButton = document.getElementById("genBut");
+  if (genButton) {
+    genButton.addEventListener("click", extract);
+  }
 
-         //Takes the input from the HTML
-        numT= document.getElementById("throws").value;
-        console.log(numT);
-        var pLen= document.getElementById("lenP").value;
+  //Listener for Acronym button
+  const genAcrButton = document.getElementById("genAcrBut");
+  if (genAcrButton) {
+    genAcrButton.addEventListener("click", extractAcr);
+  }
+}
 
-        //Prints inputs to the html.
-       // document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
-        console.log(pLen);
-        var message = generateFunc(words,numT,pLen);
+//Function Extracts input information and calls the generate function for DICEWARE PASSPHRASE.
+function extract() {
+  //Takes the input from the HTML
+  numT = document.getElementById("throws").value;
+  console.log(numT);
+  var pLen = document.getElementById("lenP").value;
 
-       
-        //document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
-        document.getElementById("result").innerHTML =message; 
-        
-        //Final message is printed
-        var finalmessage="If you are happy with the generated passphrase, "; 
-        finalmessage+="we recommend that you save a copy of it, either on a Password Manager or ";
-        finalmessage+="write it down in a piece of paper and store it in a safe place. Then take time to memorize it.";
-        finalmessage+="To use it for some online accounts you might need to add numbers and symbols to it.";
-        finalmessage+="This will make the passphrase more secure.";
+  //Prints inputs to the html.
+  // document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
+  console.log(pLen);
+  var message = generateFunc(words, numT, pLen);
 
-        //Calculate Entropy entropy = log₂(pool_size) × word_count
-        const entropy = Math.round(Math.log2(words.length)*pLen);
-        document.getElementById("entropyResult").innerHTML ="Entropy of the generated passphrase: "+ entropy + " bits.";
-        document.getElementById("strength").innerHTML ="Strength of the generated passphrase: "+ strengthCalc(entropy) + ".";
-      
-        document.getElementById("finalRec").innerHTML =finalmessage; 
-      }
+  //document.getElementById("test").innerHTML ="Passphrase Generated: " + message;
+  document.getElementById("result").innerHTML = message;
 
+  //Calculate Entropy entropy = log₂(pool_size) × word_count
+  const entropy = Math.round(Math.log2(words.length) * pLen);
+  document.getElementById("entropyResult").innerHTML =
+    "Entropy of the generated passphrase: " + entropy + " bits.";
+  document.getElementById("strength").innerHTML =
+    "Strength of the generated passphrase: " + strengthCalc(entropy) + ".";
 
-      //Function extracts input information and calls the generate function for acronym passphrase.
-      function extractAcr(){
+  //Final message is printed
+  var finalmessage = "If you are happy with the generated passphrase, ";
+  finalmessage +=
+    "we recommend that you save a copy of it, either on a Password Manager or ";
+  finalmessage +=
+    "write it down in a piece of paper and store it in a safe place. Then take time to memorize it.";
+  finalmessage +=
+    "<br> To use it for some online accounts you might need to add numbers and symbols to it, making the passphrase more secure.";
+  document.getElementById("finalRec").innerHTML = finalmessage;
+  document.getElementById("finalMess").textContent = "";
+  document.getElementById("finalMess").innerHTML =
+    "<br> TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 4. <br> TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 4. <br>";
+}
 
-        //Takes the input from the HTML
-        //Extract required throw number
-        numT= document.getElementById("throws").value;
-        console.log(numT);
-        //Extract word with initials for passphrase
-        //document.getElementById("initials").maxlength = pLen;
-        var initL=document.getElementById("initials").value;
-        var initArr=initL.split('');
-        var pLen= initArr.length;
+//Function extracts input information and calls the generate function for ACRONYM PASSPHRASE.
+function extractAcr() {
+  //Takes the input from the HTML
+  //Extract required throw number
+  numT = document.getElementById("throws").value;
+  console.log(numT);
+  //Extract word with initials for passphrase
+  //document.getElementById("initials").maxlength = pLen;
+  var initL = document.getElementById("initials").value;
+  var initArr = initL.split("");
+  var pLen = initArr.length;
 
-        //Prints inputs to the html.
-       // document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
-        console.log(pLen);
-        console.log(initArr);
-        var message = generateAcronym(words,numT,initL);
-        const poolSizes = buildLetterPoolSizes(words);
-        const acronymEntropy = calculateAcronymEntropy(initL, poolSizes);
+  //Prints inputs to the html.
+  // document.getElementById("disLen").innerHTML ="Length of Passphrase: "+pLen+" Number of Dice Throws: "+numT;
+  console.log(pLen);
+  console.log(initArr);
+  var message = generateAcronym(words, numT, initL);
+  const poolSizes = buildLetterPoolSizes(words);
+  const acronymEntropy = calculateAcronymEntropy(initL, poolSizes);
 
-        //document.getElementById("test").innerHTML ="Passphrase Generated: " + message; 
-        document.getElementById("result").innerHTML =message; 
-      
+  //document.getElementById("test").innerHTML ="Passphrase Generated: " + message;
+  document.getElementById("result").innerHTML = message;
 
-        //Final message is printed
-        var finalmessage="If you are good with the generated passphrase and wish to use it, "; 
-        finalmessage+="we recommend that you save a copy of it, either on a Password Manager or ";
-        finalmessage+="write it in a piece of paper and store it in a safe place. Then take a little time to try to memorize it.";;
-        finalmessage+="To use it for some accounts you might need to meet requirements like adding numbers and symbols.";
-    
-        //Calculate Entropy entropy = log₂(pool_size) × word_count
-        //const entropy = Math.round(Math.log2(words.length)*pLen);
-        document.getElementById("entropyResult").innerHTML ="Entropy of the generated passphrase: "+ acronymEntropy + " bits.";
-        document.getElementById("strength").innerHTML ="Strength of the generated passphrase: "+ strengthCalc(acronymEntropy) + ".";
-      
-        document.getElementById("finalRec").innerHTML =finalmessage; 
-      }
+  //Calculate Entropy entropy = log₂(pool_size) × word_count
+  //const entropy = Math.round(Math.log2(words.length)*pLen);
+  document.getElementById("entropyResult").innerHTML =
+    "Entropy of the generated passphrase: " + acronymEntropy + " bits.";
+  document.getElementById("strength").innerHTML =
+    "Strength of the generated passphrase: " +
+    strengthCalc(acronymEntropy) +
+    ". <br>";
 
-      //Entropy Acronym calculation functions
-      //Extracts the first word of each letter on the word list and counts how many words start with each letter, this will be the pool size for each letter.
-      function buildLetterPoolSizes(wordlist) {
-              //Plain Obj, stores items with key as the letter and value as the number of words that start with that letter.
-              const poolSizes = {};
-              for (const listword of Object.values(wordlist)) {
-                const word = listword[1].toLowerCase();
-                const letter = word.charAt(0);
-                console.log("Doing poolsizes for letter: "+letter);
-                //Adds 1 instance to the pool of the given letter
-                //Each item in an obj is stored as a key value pair, meaning we cannot get repeats since each word gets assigned to its starting letter key. 
-                poolSizes[letter] = (poolSizes[letter] || 0) + 1; //Safeguard in case there are letters with no words, or operator will assign 0 to them.
-              }
-              console.log(poolSizes);
-              return poolSizes;
-            }
+  //Final message is printed
+  var finalmessage = "If you are happy with the generated passphrase, ";
+  finalmessage +=
+    "we recommend that you save a copy of it, either on a Password Manager or ";
+  finalmessage +=
+    "write it down in a piece of paper and store it in a safe place. Then take time to memorize it.";
+  finalmessage +=
+    "<br> To use it for some online accounts you might need to add numbers and symbols to it, making the passphrase more secure.";
+  document.getElementById("finalRec").innerHTML = finalmessage;
+  document.getElementById("finalMess").textContent = "";
+  document.getElementById("finalMess").innerHTML =
+    "<br> TO RUN AGAIN WITH SAME WORDLIST: Repeat Steps 2 through 4. <br> TO RUN AGAIN WITH DIFFERENT WORDLIST: Reload the page and repeat steps 1 through 4. <br>";
+}
 
-      // Calculate entropy for acronym mode
-      function calculateAcronymEntropy(seedWord, poolSizes) {
-        const letters = seedWord.toLowerCase().split('');
-        return Math.round(
-        
-          //Resuce method iterates through the letters of the acronym, for each letter it gets the pool size from the poolSizes object and calculates log2 of it.
-          //Therefore it is adding the entropy of each individual letter to get the total entropy.
-        letters.reduce((total, letter) => {
-          const poolSize = poolSizes[letter] || 1;
-          return total + Math.log2(poolSize);
-          }, 0)
-        );
-      }     
+//Entropy Acronym calculation functions
+//Extracts the first word of each letter on the word list and counts how many words start with each letter, this will be the pool size for each letter.
+function buildLetterPoolSizes(wordlist) {
+  //Plain Obj, stores items with key as the letter and value as the number of words that start with that letter.
+  const poolSizes = {};
+  for (const listword of Object.values(wordlist)) {
+    const word = listword[1].toLowerCase();
+    const letter = word.charAt(0);
+    console.log("Doing poolsizes for letter: " + letter);
+    //Adds 1 instance to the pool of the given letter
+    //Each item in an obj is stored as a key value pair, meaning we cannot get repeats since each word gets assigned to its starting letter key.
+    poolSizes[letter] = (poolSizes[letter] || 0) + 1; //Safeguard in case there are letters with no words, or operator will assign 0 to them.
+  }
+  console.log(poolSizes);
+  return poolSizes;
+}
 
-  
-      //Function to calculate strength of the passphrase based on entropy, returns a string with the strength and recommendations.
-      function strengthCalc(entropy){
-        if (entropy < 40) 
-          return "<strong>Weak</strong>. <br> We recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> If you want to use this passphrase, we recommend that you add numbers, symbols and capitalization to it.";
-        if (entropy < 60) 
-          return "<strong>Moderate</strong>. <br> If you want to use this passphrase for a high value account, we recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> Adding numbers, symbols and capitalization will make it stronger";
-        if (entropy < 80) 
-          return "<strong>Strong</strong>. <br> Adding numbers, symbols and capitalization will make it even stronger.";
-        return "<strong>Very Strong</strong>.";
-      }
+// Calculate entropy for acronym mode
+function calculateAcronymEntropy(seedWord, poolSizes) {
+  const letters = seedWord.toLowerCase().split("");
+  return Math.round(
+    //Resuce method iterates through the letters of the acronym, for each letter it gets the pool size from the poolSizes object and calculates log2 of it.
+    //Therefore it is adding the entropy of each individual letter to get the total entropy.
+    letters.reduce((total, letter) => {
+      const poolSize = poolSizes[letter] || 1;
+      return total + Math.log2(poolSize);
+    }, 0),
+  );
+}
 
+//Function to calculate strength of the passphrase based on entropy, returns a string with the strength and recommendations.
+function strengthCalc(entropy) {
+  if (entropy < 40)
+    return "<strong>Weak</strong>. <br><br> We recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> If you want to use this passphrase, we recommend that you add numbers, symbols and capitalization to it.";
+  if (entropy < 60)
+    return "<strong>Moderate</strong>. <br><br> If you want to use this passphrase for a high value account, we recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> Adding numbers, symbols and capitalization will make it stronger";
+  if (entropy < 80)
+    return "<strong>Strong</strong>. <br><br> Adding numbers, symbols and capitalization will make it even stronger.";
+  return "<strong>Very Strong</strong>.";
+}
 
-
-    //Loads start function when page is loaded.
-     window.addEventListener("load",start,false);
+//Loads start function when page is loaded.
+window.addEventListener("load", start, false);

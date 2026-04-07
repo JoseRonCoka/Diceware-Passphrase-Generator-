@@ -6,9 +6,10 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="en" >
   <head>
     <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dice Ware Passphrase Generator</title>
 
     <!--Link to CSS file-->
@@ -19,17 +20,20 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
   <body>
 
     <header>
+
+      <div class="contentNav">
       <h2 class="navbar"><a href="DiceWarePassphraseGenerator.html">Dice Ware Passphrase Generator</a></h2>
 
       <!--Navigation Links on navbar-->
-    <nav> 
-        <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-        <a class="button" href="HowItWorks.html">How it Works</a>
+    <nav class="navbar"> 
+        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a href="HowItWorks.html">How it Works</a>
     </nav>
-
+      </div>
    </header>
     
    <section class="introduction">
+    <div class="content">
     <h1>Welcome to the Dice Ware Passphrase Generator.</h1>
     <br>
     <p>
@@ -44,23 +48,36 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
       <br>
       This website does not store any information. Passphrases are generated locally and never leave your machine. 
     </p>
+    </div>
    </section>
 
    <section class="steps">
+    <div class="content">
     <h3 class="left">Steps:</h3>
     <br>
-    <p class="left">
-      1. Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm. <br><br>
-      2. Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.<br><br>
-      3. Enter how long you want the passphrase to be. In other words, the number of words in the passphrase. <br><br>
-      4. Click on the Generate Button and see the results. <br><br>
-    </p>
-
+    <ol>
+      <li>
+         Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm.
+      </li>
+      <li>
+        Enter the number of dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.
+      </li>
+      <li>
+        Enter the desired length of the passphrase. This determines the number of words in the generated passphrase.
+      </li>
+      <li>
+        Click the Generate Button to create your secure passphrase.
+      </li>
+    </ol>
+    
+  </div>
     </section>
 
     <!--Generator section, includes the inputs and passphrase result -->
     <section class="generator">
+    <div class="content">
 
+      <div class="divFlexContainer">
       <div class="divPanel">
         <h3 class="left">Enter: </h3>
         <br>
@@ -88,10 +105,13 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
           </form>
         
       </div>
+      </div>
+      </div>
       </section>
 
     <!--Added Section for entropy results-->
     <section class="entropy">
+      <div class="content">
       <h2 class="left">Entropy Calculation:</h2>
       <br>
       <h3 class="left" id="entropyResult"></h3>
@@ -104,6 +124,7 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
         <br>
         The app will calculate the entropy of the generated passphrase and give you a strength estimation and recommendations to improve it. </br>
       </p>
+      </div>
     </section>
 
     <script type="module" src="./app.js"></script>
@@ -111,22 +132,23 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
   </body>
 
   <footer>
-    
+    <div class="content">
+      <div class="divFlexContainer">
     <!--Navigation on Footer-->
-    <div>
+    <div class="footerDivColumn" >
       <a class="button" href="DiceWarePassphraseGenerator.html">Diceware Passphrase Generator</a>
       <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
       <a class="button" href="HowItWorks.html">How it Works</a>
     </div>
 
     <!--Website Information-->
-    <div>
+    <div class="footerDivColumn" >
       <p>© 2026 Jose Ron Coka. All rights reserved.</p>
       <p>This website does not store any information.</p>
     </div>
 
     <!--Contact Information-->
-    <div>
+    <div class="footerDivColumn">
       <p class="bold">Contact Information:</p>
     
       <div class="footerLink">
@@ -137,7 +159,9 @@ History: Version 2.0 April 02, 2026. Finalized upgraded version-->
         <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50" height="50">
       </div>
     </div>
-      
+
+    </div>
+    </div>
     
   </footer>
 

@@ -16,7 +16,7 @@ Page: How It Works, explains the algorithm.-->
 
   <!--Link to CSS and JS files-->
   <link rel="stylesheet" href="style.css">
-  <script src="app.js"></script>
+  <!--<script src="app.js"></script>-->
 
 </head>
 
@@ -24,16 +24,23 @@ Page: How It Works, explains the algorithm.-->
 
   <header>
 
-    <h2 class="navbar"><a href="DiceWarePassphraseGenerator.html">Dice Ware Passphrase Generator</a></h2>
+    <div class="content">
+      <div class="divFlexContainer">
+        <h2 class="navTitle"><a href="DiceWarePassphraseGenerator.html">Dice Ware Passphrase Generator</a></h2>
 
-    <!--Navigation Links on navbar-->
-    <nav>
-      <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-      <a class="button" href="HowItWorks.html">How it Works</a>
-    </nav>
+        <!--Navigation Links on navbar-->
+        <nav class="navbar">
+          <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+          <a href="HowItWorks.html">How it Works</a>
+        </nav>
+      </div>
+    </div>
 
   </header>
+
+  
   <section class="graySection">
+    <div class="content">
     <h1>Why Passphrases?</h1>
     <br>
     <p>
@@ -51,10 +58,11 @@ Page: How It Works, explains the algorithm.-->
       The only practical way to use random generated passwords is by also using a password manager.
       However, passwords managers are still susceptible to attacks and usually is not free software.
     </p>
+  </div>
   </section>
 
   <section class="whiteSection">
-
+    <div class="content">
     <h2>How the DiceWare Algorithm works?</h2>
     <br>
     <p>
@@ -109,10 +117,11 @@ Page: How It Works, explains the algorithm.-->
 
 
 
-
+    </div>
   </section>
 
   <section class="graySection">
+    <div class="content">
     <h2>How the Passphrase Generator works?</h2>
     <br>
     <p>
@@ -124,9 +133,11 @@ Page: How It Works, explains the algorithm.-->
       word.
       This process is repeated until the passphrase has the number of words you specified.
     </p>
+    </div>
   </section>
 
   <section class="whiteSection">
+    <div class="content">
     <h2>How the Acronym Passphrase Generator Works</h2>
     <br>
     <p>
@@ -141,9 +152,11 @@ Page: How It Works, explains the algorithm.-->
       Furthermore, adding symbols, capitalization and numbers can also increase how secure the acronym passphrase is.
       It is up to you to decide whether the trade off is worth it.
     </p>
+    </div>
   </section>
 
   <section class="graySection">
+    <div class="content">
     <h2>What is entropy?</h2>
     <br>
     <p>
@@ -156,6 +169,7 @@ Page: How It Works, explains the algorithm.-->
       The entropy of a password can be calculated using the formula: E = log2(N^L), where N is the number of possible
       characters and L is the length of the password.
     </p>
+    </div>
   </section>
 
   <script src="app.js"></script>
@@ -163,30 +177,34 @@ Page: How It Works, explains the algorithm.-->
 </body>
 
 <footer>
+  <div class="content">
+    <div class="divFlexContainer">
+      <!--Navigation on Footer-->
+      <div class="footerDivColumn">
+        <a class="button" href="DiceWarePassphraseGenerator.html">Diceware Passphrase Generator</a>
+        <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a class="button" href="HowItWorks.html">How it Works</a>
+      </div>
 
-  <!--Navigation on Footer-->
-  <div>
-    <a class="button" href="DiceWarePassphraseGenerator.html">Diceware Passphrase Generator</a>
-    <a class="button" href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-    <a class="button" href="HowItWorks.html">How it Works</a>
-  </div>
+      <!--Website Information-->
+      <div class="footerDivColumn">
+        <p>© 2026 Jose Ron Coka. All rights reserved.</p>
+        <p>This website does not store any information.</p>
+      </div>
 
-  <!--Website Information-->
-  <div>
-    <p>© 2026 Jose Ron Coka. All rights reserved.</p>
-    <p>This website does not store any information.</p>
-  </div>
+      <!--Contact Information-->
+      <div class="footerDivColumn">
+        <p class="bold">Contact Information:</p>
 
-  <!--Contact Information-->
-  <div>
-    <p class="bold">Contact Information:</p>
-
-    <div class="footerLink">
-      <a href="https://github.com/JoseRonCoka?" target="_blank">
-        <img class="logoLink" src="Assets/Images/Envelope.svg" alt="GitHub Logo" width="50" height="50">
-      </a>
-      <a href="mailto:joseroncoka@gmail.com">
-        <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50" height="50">
+        <div class="footerLink">
+          <a href="mailto:joseroncoka@gmail.com" target="_blank">
+            <img class="logoLink" src="Assets/Images/Envelope.svg" alt="GitHub Logo" width="50" height="50">
+          </a>
+          <a href="https://github.com/JoseRonCoka?" target="_blank">
+            <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50"
+              height="50">
+        </div>
+      </div>
     </div>
   </div>
 

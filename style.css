@@ -3,7 +3,7 @@
 /*Author: Jose Ron Coka
 /*History: Version 1.0 December 10, 2022. First Fully working prototype-->*/
 
-/* ===== CSS Reset ===== */
+/* ||CSS Reset*/
 *,
 *::before,
 *::after {
@@ -45,10 +45,17 @@ h6 {
   overflow-wrap: break-word;
 }
 
-/* My Styles */
+
+
+
+
+
+
+/* ||General Styles */
 
 header {
   background-color: gray;
+  /*background-color: rgb(0, 85, 182);
   padding: 1rem 1rem;
   /*display: flex;*/
   /*justify-content: space-between;
@@ -57,27 +64,34 @@ header {
 
   h2 {
     color: white;
-    margin: 0.5rem;
     text-decoration: none;
+    margin: 0 auto;
   }
 }
 
-.content{
-  width: 100%;
-  max-width: 1000px;
-  /*min-width: 350px;*/
-  margin: 0 auto;
-  border: red solid 2px;
+body {
+  font-family:
+    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
+    Arial, sans-serif;
+  font-size: 1.1rem;
+  text-align: justify;
+  background-color: lightgray;
+
+  h1 {
+    text-align: center;
+  }
 }
 
-.contentNav{
-  width: 100%;
-  max-width: 1000px;
-  /*min-width: 350px;*/
-  margin: 0 auto;
-  border: red solid 2px;
-  display:flex;
+footer {
+  /*display: flex;*/
+  align-items: center;
   justify-content: center;
+  background-color: gray;
+  /*padding: 1rem 1rem;*/
+  color: white;
+  text-decoration: none;
+  font-size: 0.95rem;
+  width: 100%;
 }
 
 nav {
@@ -94,31 +108,106 @@ nav a {
   padding: 1em 1em;
   /*8px 5px;*/
   border-radius: 5px;
+  text-align: right;
 
-  h2{
+ /* h2{
     color: white;
     margin: 0.5rem;
     text-decoration: none;
     font-size: 50px;
-  }
+    text-align: left;}*/
 }
-
-.navbar h2{
-  color: white;
-  margin: 0.5rem;
-  text-decoration: none;
-  font-size: 50px;
-
-}
-
+  
 h2{
   font-size: 1.8rem;
+}
+
+/* Style the list items in the steps section */
+li{
+  margin-bottom: 1rem;
+}
+
+input {
+  font-size: 1rem;
+  background-color: gray;
+  color: white;
+}
+
+input[type="button"] {
+  padding: 1rem 2rem;
+  border-radius: 5px;
+  cursor: pointer;
+  text-align: center;
+  display: block;
+  margin: auto;
+}
+
+
+
+
+
+
+/* ||Layout Utilities */
+
+/*Content Wrapper*/
+.content{
+  width: 100%;
+  max-width: 1000px;
+  /*min-width: 350px;*/
+  margin: 0 auto;
+  border: red solid 2px;
+  padding: 1rem 0.5rem;
+}
+
+.divFlexContainer {
+  border: solid blue;
+  display: flex;
+  /* space between panels */
+  gap: 1rem;
+  padding: 0.25rem 0.25rem;
+  width: 100%;
+  justify-content: flex-end;
+  /* centre them horizontally */
+  align-items: center;
+
+}
+.divPanel {
+  padding: 0.5rem 1rem;
+  border: 2px solid gray;
+  border-radius: 5px;
+  width: 100%;
+  text-align: left;
+}
+
+/*
+.contentNav{
+  width: 100%;
+  max-width: 1000px;
+  min-width: 350px;
+  margin: 0 auto;
+  border: red solid 2px;
+  display:flex;
+  justify-content: flex-end;
+  align-items: center;
+}*/
+
+
+
+.navTitle a{
+  text-decoration: none;
+  color: white;
+  /*border: solid black 1px;*/
+  font-weight: bold
+}
+
+.navTitle a:hover{
+  color: white;
 }
 
 .navbar a {
   text-decoration: none;
   color: white;
-  
+  border: solid black 1px;
   font-weight: bold;
 }
 
@@ -127,30 +216,7 @@ h2{
   color: gray;
 }
 
-body {
-  font-family:
-    "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans",
-    Arial, sans-serif;
-  font-size: 1rem;
-  text-align: justify;
-  background-color: lightgray;
 
-  h1 {
-    text-align: center;
-  }
-}
-
-footer {
-  /*display: flex;*/
-  align-items: center;
-  justify-content: center;
-  background-color: gray;
-  padding: 1rem 1rem;
-  color: white;
-  text-decoration: none;
-  font-size: 0.95rem;
-  width: 100%;
-}
 
 footer div {
   /*display: flex;
@@ -187,20 +253,24 @@ footer div {
   margin:0;
 }
 
-footer div a img {
-  display: flex;
-  justify-content: center;
-  align-items: flex-end;
-}
-
 .footerLink {
   width: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  justify-content: center; /*Horizontal alignment for logo links*/
+  align-items: center; /*Vertical alignment for logo links*/
   gap: 1rem;
 }
+
+/*
+footer div a img {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}*/
+
+
+
 
 a:hover {
   color: lightgray;
@@ -208,11 +278,11 @@ a:hover {
 
 
 
-/*sections */
+/*||Sections Classes*/
 
 .introduction {
   width: 100%;
-  padding: 1rem 1rem;
+  /*padding: 1rem 1rem;*/
 
   p {
     text-align: justify;
@@ -226,14 +296,10 @@ a:hover {
 
 .steps {
   width: 100%;
-  padding: 1rem 1rem;
+  /*padding: 1rem 1rem;*/
   background-color: whitesmoke;
 }
 
-/* Style the list items in the steps section */
-li{
-  margin-bottom: 1rem;
-}
 
 .generator {
   /*display: flex;
@@ -243,31 +309,14 @@ li{
 }
 
 .entropy {
-  font-size: 1rem;
+  /*font-size: 1rem;*/
   background-color: whitesmoke;
-  padding: 1rem 1rem;
-}
-.divFlexContainer {
-  display: flex;
-  /* space between panels */
-  gap: 1rem;
-  padding: 1rem 1rem;
-  width: 100%;
-  justify-content: center;
-  /* centre them horizontally */
-
-}
-.divPanel {
-  padding: 1rem 1rem;
-  border: 2px solid gray;
-  border-radius: 5px;
-  width: 100%;
-  text-align: left;
+  /*padding: 1rem 1rem;*/
 }
 
 .whiteSection {
   width: 100%;
-  padding: 2rem 1rem;
+  /*padding: 2rem 1rem;*/
   background-color: whitesmoke;
 
   p {
@@ -277,7 +326,7 @@ li{
 
 .graySection {
   width: 100%;
-  padding: 1rem 1rem;
+  /*padding: 1rem 1rem;*/
   background-color: lightgrey;
 
   p {
@@ -304,33 +353,12 @@ li{
   text-align: center;
 }
 
-.centerTable {
-  margin-left: auto;
-  margin-right: auto;
-}
-
 .left {
   text-align: left;
 }
 
-table {
-  text-align: center;
-}
 
-input {
-  font-size: 1rem;
-  background-color: gray;
-  color: white;
-}
 
-input[type="button"] {
-  padding: 1rem 2rem;
-  border-radius: 5px;
-  cursor: pointer;
-  text-align: center;
-  display: block;
-  margin: auto;
-}
 
 .result {
   color: white;

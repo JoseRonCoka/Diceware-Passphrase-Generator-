@@ -54,8 +54,8 @@ h6 {
 /* ||General Styles */
 
 header {
-  background-color: gray;
-  /*background-color: rgb(0, 85, 182);
+  /*background-color: gray;*/
+  background-color: rgb(16, 117, 195);
   padding: 1rem 1rem;
   /*display: flex;*/
   /*justify-content: space-between;
@@ -76,6 +76,7 @@ body {
   font-size: 1.1rem;
   text-align: justify;
   background-color: lightgray;
+  /*background-color: whitesmoke;*/
 
   h1 {
     text-align: center;
@@ -86,7 +87,7 @@ footer {
   /*display: flex;*/
   align-items: center;
   justify-content: center;
-  background-color: gray;
+  background-color:  rgb(12, 81, 133);
   /*padding: 1rem 1rem;*/
   color: white;
   text-decoration: none;
@@ -104,6 +105,7 @@ nav {
 nav a {
   text-decoration: none;
   background-color: darkgray;
+  background-color: rgb(12, 81, 133);
   color: white;
   padding: 1em 1em;
   /*8px 5px;*/
@@ -131,6 +133,12 @@ input {
   font-size: 1rem;
   background-color: gray;
   color: white;
+  caret-color: white;
+ 
+}
+
+#throws{
+  caret-color: white;
 }
 
 input[type="button"] {
@@ -160,7 +168,7 @@ input[type="button"] {
 }
 
 .divFlexContainer {
-  border: solid blue;
+  border: solid rgb(23, 138, 226);
   display: flex;
   /* space between panels */
   gap: 1rem;
@@ -211,10 +219,11 @@ input[type="button"] {
   font-weight: bold;
 }
 
+/*
 .navbar a:hover {
   background-color: lightgray;
   color: gray;
-}
+}*/
 
 
 
@@ -262,6 +271,10 @@ footer div {
   gap: 1rem;
 }
 
+.footerNav hover{
+  text-decoration: underline;
+}
+
 /*
 footer div a img {
   display: flex;
@@ -273,7 +286,8 @@ footer div a img {
 
 
 a:hover {
-  color: lightgray;
+  /*color: lightgray;*/
+  text-decoration: underline;
 }
 
 
@@ -321,6 +335,11 @@ a:hover {
 
   p {
     text-align: justify;
+    margin-bottom: 1rem;
+  }
+
+  h2{
+    margin-bottom: 1rem;
   }
 }
 
@@ -331,6 +350,11 @@ a:hover {
 
   p {
     text-align: justify;
+    margin-bottom: 1rem;
+  }
+
+   h2{
+    margin-bottom: 1rem;
   }
 }
 
@@ -343,8 +367,9 @@ a:hover {
 }
 
 .button:hover {
-  background-color: lightgray;
-  color: gray;
+  background-color:  rgb(160, 160, 160);
+  color: white;
+  text-decoration: underline;
 }
 
 
@@ -364,6 +389,13 @@ a:hover {
   color: white;
   background-color: grey;
   padding: 1rem;
+}
+
+.divCenter{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* Image css */
@@ -386,4 +418,11 @@ a:hover {
   /* maintains aspect ratio */
   border-radius: 8px;
   /* optional — rounds corners */
+}
+
+@media (max-width: 600px) {
+  .divFlexContainer{
+    flex-direction: column;
+    /* stack panels vertically on small screens */
+  }
 }

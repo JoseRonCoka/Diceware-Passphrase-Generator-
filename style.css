@@ -55,7 +55,7 @@ h6 {
 
 header {
   /*background-color: gray;*/
-  background-color: rgb(16, 117, 195);
+  background-color: rgb(12, 98, 163);
   padding: 1rem 1rem;
   /*display: flex;*/
   /*justify-content: space-between;
@@ -163,12 +163,12 @@ input[type="button"] {
   max-width: 1000px;
   /*min-width: 350px;*/
   margin: 0 auto;
-  border: red solid 2px;
+  /*border: red solid 2px;*/
   padding: 1rem 0.5rem;
 }
 
 .divFlexContainer {
-  border: solid rgb(23, 138, 226);
+  /*border: solid rgb(23, 138, 226);*/
   display: flex;
   /* space between panels */
   gap: 1rem;
@@ -256,7 +256,7 @@ footer div {
   align-items: flex-start;
   text-align: justify;
   padding: 0.25rem 0.25rem;
-  border: 2px black solid;
+  /*border: 2px black solid;*/
   width: 100%;
   text-decoration: none;
   margin:0;

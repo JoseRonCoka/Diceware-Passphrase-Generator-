@@ -1,7 +1,7 @@
 <!--File: HowItWorks.html
 Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
 Author: Jose Ron Coka
-History: Version 2.0 March 11 2026
+History: Version 2.0 April 21, 2026
 Page: How It Works, explains the algorithm.-->
 
 
@@ -11,12 +11,12 @@ Page: How It Works, explains the algorithm.-->
 
 <head>
   <meta charset="utf-8" />
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acronym Passphrase Generator</title>
+  <!--Makes website bigger on smaller screens-->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How It Works</title>
 
   <!--Link to CSS and JS files-->
   <link rel="stylesheet" href="css/style.css">
-  <!--<script src="app.js"></script>-->
 
 </head>
 
@@ -26,7 +26,7 @@ Page: How It Works, explains the algorithm.-->
 
     <div class="content">
       <div class="divFlexContainer">
-        <h2 class="navTitle"><a href="index.html">Dice Ware Passphrase Generator</a></h2>
+        <h2 class="navTitle"><a href="index.html">Diceware Passphrase Generator</a></h2>
 
         <!--Navigation Links on navbar-->
         <nav class="navbar">
@@ -38,62 +38,69 @@ Page: How It Works, explains the algorithm.-->
 
   </header>
 
-  
+
   <section class="graySection">
     <div class="content">
-    <h2>Why use Passphrases?</h2>
-    
-    <p>
-      User Authentication is a critical aspect of Cybersecurity. It has evolved from methods like simple passwords to
-      two step verifications, physical key, biometrics, etc.
+
+      <h1>How it Works</h1>
+      <h2>Why use Passphrases?</h2>
+
+      <p>
+        User Authentication is a critical aspect of Cybersecurity. It has evolved from methods like simple passwords to
+        two step verifications, physical key, biometrics, etc.
       </p>
       <p>
-        Passwords are still the most popular even though they can also be the least safe since hacking tools like John the Ripper can
-      brute force a simple password in a few seconds. Therefore, passwords must be hard to crack. A way to achive this is to include elements
-      like numbers, symbols and capital letters. 
+        Passwords are still the most popular even though they can also be the least safe since hacking tools like John
+        the Ripper can
+        brute force a simple password in a few seconds. Therefore, passwords must be hard to crack. A way to achive this
+        is to include elements
+        like numbers, symbols and capital letters.
       </p>
-    <p>
-      Passwords Generators online can create an extremely hard to crack password like:
-      54vHMW1!, generated in LastPass.com. But a random generated password is not practical, because a random combination of characters is almost impossible to
-      remember.
+      <p>
+        Passwords Generators online can create an extremely hard to crack password like:
+        54vHMW1!, generated in LastPass.com. But a random generated password is not practical, because a random
+        combination of characters is almost impossible to
+        remember.
       </p>
       The only practical way to use random generated passwords is by also using a Password Manager.
       However, these are still susceptible to attacks and usually are not free to use software.
-    </p>
-    <p>
-      This is where Passphrases come in, they are a sequence of words that are easy to remember but hard to crack. While a passphrase can be any
-      combination of words, the most secure ones are those that are generated randomly. We can use the DiceWare Algorithm for this. 
-    </p>
-  </div>
+      </p>
+      <p>
+        This is where Passphrases come in, they are a sequence of words that are easy to remember but hard to crack.
+        While a passphrase can be any
+        combination of words, the most secure ones are those that are generated randomly. We can use the DiceWare
+        Algorithm for this.
+      </p>
+    </div>
   </section>
 
   <section class="whiteSection">
     <div class="content">
-    <h2>How the DiceWare Algorithm works?</h2>
-    
-    <p>
-      A password or passhprase that is predictable is very easy to crack. We need to use random passwords that hard to guess, but
-      humans are terrible at randomness.
+      <h2>How the Diceware Algorithm works?</h2>
+
+      <p>
+        A password or passhprase that is predictable is very easy to crack. We need to use random passwords that hard to
+        guess, but
+        humans are terrible at randomness.
       </p>
       <p>
-      This is where the DiceWare algorithm comes in, it generates a completely random passphrase that is easy to
-      remember and hard to crack.
+        This is where the DiceWare algorithm comes in, it generates a completely random passphrase that is easy to
+        remember and hard to crack.
       </p>
       <p>
-      It is called DiceWare because it uses dice to generate random numbers, which are then used to select words from a
-      wordlist.
-      Using a valid DiceWare wordlist and one dice you can generate a passphrase on your own, you just need to throw the
-      dice a number of times and then match the resulting number with the list.
-    </p>
-    <p>
-      For example, let's say you throw the dice 5 times and get the following numbers.
-    </p>
+        It is called DiceWare because it uses dice to generate random numbers, which are then used to select words from
+        a
+        wordlist.
+        Using a valid DiceWare wordlist and one dice you can generate a passphrase on your own, you just need to throw
+        the
+        dice a number of times and then match the resulting number with the list.
+      </p>
+      <p>
+        For example, let's say you throw the dice 5 times and get the following numbers.
+      </p>
 
 
-    <!--Divs used to format images correctly. Used like a table in this case-->
-    
-
-    
+      <!--Divs used to format images correctly. Used like a table in this case-->
       <div class="footerLink">
         <div>
           <div>
@@ -103,22 +110,22 @@ Page: How It Works, explains the algorithm.-->
             <p>1</p>
           </div>
         </div>
-        
+
         <div>
           <div>
             <img src="/Assets/Images/dice-two.svg" alt="dice resulting in 2" width="70" height="70">
           </div>
           <div class="divCenter">
-            <p >2</p>
+            <p>2</p>
           </div>
         </div>
 
-         <div>
+        <div>
           <div>
             <img src="/Assets/Images/dice-three.svg" alt="dice resulting in 3" width="70" height="70">
           </div>
           <div class="divCenter">
-            <p >3</p>
+            <p>3</p>
           </div>
         </div>
 
@@ -127,7 +134,7 @@ Page: How It Works, explains the algorithm.-->
             <img src="/Assets/Images/dice-five.svg" alt="dice resulting in 5" width="70" height="70">
           </div>
           <div class="divCenter">
-            <p >5</p>
+            <p>5</p>
           </div>
         </div>
 
@@ -136,85 +143,90 @@ Page: How It Works, explains the algorithm.-->
             <img src="/Assets/Images/dice-one.svg" alt="dice resulting in 1" width="70" height="70">
           </div>
           <div class="divCenter">
-            <p >1</p>
+            <p>1</p>
           </div>
         </div>
       </div>
-     
-    <p>
-      Look up the number 12345 in the wordlist and find the corresponding word.
-      Inside the default wordlist provided with this project, the word corresponding to the number 12345 is "array".
-      This is the first word of the passphrase. We just repeat the process until we have the number of words we desire. 
-    </p>
+
+      <p>
+        Look up the number 12345 in the wordlist and find the corresponding word.
+        Inside the default wordlist provided with this project, the word corresponding to the number 12345 is "array".
+        This is the first word of the passphrase. We just repeat the process until we have the number of words we
+        desire.
+      </p>
 
     </div>
   </section>
 
   <section class="graySection">
     <div class="content">
-    <h2>How the Passphrase Generator works?</h2>
-   
-    <p>
-      The program generates a random number between 1 and 6, simulating a dice throw. The number of times the dice is
-      thrown to find each word depends on the Wordlist you are using. The default Wordlists provided with this project use 5 dice throws.
-    </p>
-    <p>
-      The number is cryptographically random, generated by the Web Crypto API, which is a JavaScript API for performing
-      core cryptographic operations in web applications.
-    </p>  
-    <p>
-      The results of the dice throws form a number, which the program looks up in the Wordlist to find the corresponding
-      word.
-      This process is repeated until the passphrase has the number of words you specified.
-    </p>
+      <h2>How the Passphrase Generator works?</h2>
+
+      <p>
+        The program generates a random number between 1 and 6, simulating a dice throw. The number of times the dice is
+        thrown to find each word depends on the Wordlist you are using. The default Wordlists provided with this project
+        use 5 dice throws.
+      </p>
+      <p>
+        The number is cryptographically random, generated by the Web Crypto API, which is a JavaScript API for
+        performing
+        core cryptographic operations in web applications.
+      </p>
+      <p>
+        The results of the dice throws form a number, which the program looks up in the Wordlist to find the
+        corresponding
+        word.
+        This process is repeated until the passphrase has the number of words you specified.
+      </p>
     </div>
   </section>
 
   <section class="whiteSection">
     <div class="content">
-    <h2>How the Acronym Passphrase Generator Works</h2>
-    
-    <p>
-      It takes a word as input from the user, and generates a passphrase with random words that start with each of the
-      characters that make up the word you entered.
-      It uses the same process as the DiceWare Algorithm, it keeps generating random number until it finds a word that
-      starts with the character it needs, and so on.
-      </p>
-    <p>
-      The result is a passphrase with as many words as the number of characters in the input word.
-      Since the words selected are not 100% random the generated passphrase has less entropy, which means it is less
-      secure.
+      <h2>How the Acronym Passphrase Generator Works</h2>
+
+      <p>
+        It takes a word as input from the user, and generates a passphrase with random words that start with each of the
+        characters that make up the word you entered.
+        It uses the same process as the DiceWare Algorithm, it keeps generating random number until it finds a word that
+        starts with the character it needs, and so on.
       </p>
       <p>
-      You are trading security for memorability, because of this a longer input word is recommended.
-      Furthermore, adding symbols, capitalization and numbers can also increase how secure the acronym passphrase is.
-      It is up to you to decide whether the trade off is worth it.
-    </p>
+        The result is a passphrase with as many words as the number of characters in the input word.
+        Since the words selected are not 100% random the generated passphrase has less entropy, which means it is less
+        secure.
+      </p>
+      <p>
+        You are trading security for memorability, because of this a longer input word is recommended.
+        Furthermore, adding symbols, capitalization and numbers can also increase how secure the acronym passphrase is.
+        It is up to you to decide whether the trade off is worth it.
+      </p>
     </div>
   </section>
 
   <section class="graySection">
     <div class="content">
-    <h2>What is entropy?</h2>
-  
-    <p>
-      Entropy is a measure of randomness or unpredictability. It is a key concept in Cybersecurity, for password
-      strength entropy shows the unpredictability of a password and therefore how hard it is to break.
-      The more random a password is the higher its entropy and the harder it is to crack. 
+      <h2>What is entropy?</h2>
+
+      <p>
+        Entropy is a measure of randomness or unpredictability. It is a key concept in Cybersecurity, for password
+        strength entropy shows the unpredictability of a password and therefore how hard it is to break.
+        The more random a password is the higher its entropy and the harder it is to crack.
       </p>
       <p>
-      Passwords with low entropy can be cracked easily with brute force attacks.
-      These attacks check every possible combination of characters until they find the correct one.
+        Passwords with low entropy can be cracked easily with brute force attacks.
+        These attacks check every possible combination of characters until they find the correct one.
       </p>
       <p>
-      A password with high entropy is more resistant to brute force attacks, because it has more possible combinations.
-      The entropy of a password can be calculated using the following formula: 
+        A password with high entropy is more resistant to brute force attacks, because it has more possible
+        combinations.
+        The entropy of a password can be calculated using the following formula:
       </p>
       <div class="divCenter">
-      <span>E = log<sub>2</sub>(N<sup>L</sup>)</span>
+        <span>E = log<sub>2</sub>(N<sup>L</sup>)</span>
       </div>
       <p>
-      Where: 
+        Where:
       </p>
       <ul>
         <li>N is the number of possible characters.</li>
@@ -254,7 +266,7 @@ Page: How It Works, explains the algorithm.-->
           <a href="https://github.com/JoseRonCoka?" target="_blank">
             <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50"
               height="50">
-              </a>
+          </a>
         </div>
       </div>
     </div>

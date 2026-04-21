@@ -65,6 +65,14 @@ function extract() {
   console.log(pLen);
   var message = generateFunc(words, numT, pLen);
 
+  if (message == "error"){
+    message = "No passphrase generated, please input a valid wordlist, refresh the page and try again.";
+     document.getElementById("result").innerHTML = message;
+
+      return;
+  }
+
+
   //document.getElementById("test").innerHTML ="Passphrase Generated: " + message;
   document.getElementById("result").innerHTML = message;
 
@@ -73,7 +81,7 @@ function extract() {
   document.getElementById("entropyResult").innerHTML =
     "Entropy of the generated passphrase: " + entropy + " bits.";
   document.getElementById("strength").innerHTML =
-    "Strength of the generated passphrase: " + strengthCalc(entropy) + ".";
+    "Strength of the generated passphrase: " + strengthCalc(entropy);
 
   //Final message is printed
   var finalmessage = "If you are happy with the generated passphrase, ";
@@ -106,11 +114,20 @@ function extractAcr() {
   console.log(pLen);
   console.log(initArr);
   var message = generateAcronym(words, numT, initL);
+ 
+  if (message == "error"){
+    message = "No passphrase generated, please input a valid wordlist, refresh the page and try again.";
+     document.getElementById("result").innerHTML = message;
+     return;
+  }
+
+
+  
+  document.getElementById("result").innerHTML = message;
+
   const poolSizes = buildLetterPoolSizes(words);
   const acronymEntropy = calculateAcronymEntropy(initL, poolSizes);
 
-  //document.getElementById("test").innerHTML ="Passphrase Generated: " + message;
-  document.getElementById("result").innerHTML = message;
 
   //Calculate Entropy entropy = log₂(pool_size) × word_count
   //const entropy = Math.round(Math.log2(words.length)*pLen);
@@ -118,8 +135,7 @@ function extractAcr() {
     "Entropy of the generated passphrase: " + acronymEntropy + " bits.";
   document.getElementById("strength").innerHTML =
     "Strength of the generated passphrase: " +
-    strengthCalc(acronymEntropy) +
-    ". <br>";
+    strengthCalc(acronymEntropy);
 
   //Final message is printed
   var finalmessage = "If you are happy with the generated passphrase, ";
@@ -168,7 +184,7 @@ function calculateAcronymEntropy(seedWord, poolSizes) {
 //Function to calculate strength of the passphrase based on entropy, returns a string with the strength and recommendations.
 function strengthCalc(entropy) {
   if (entropy < 40)
-    return "<strong>Weak</strong>. <br><br> We recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> If you want to use this passphrase, we recommend that you add numbers, symbols and capitalization to it.";
+    return "<strong>Weak</strong>. <br><br> We recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> To use this passphrase, we recommend that you add numbers, symbols and capitalization to it.<br><br>";
   if (entropy < 60)
     return "<strong>Moderate</strong>. <br><br> If you want to use this passphrase for a high value account, we recommend that you generate a new passphrase with more words or using a bigger wordlist. <br> Adding numbers, symbols and capitalization will make it stronger";
   if (entropy < 80)

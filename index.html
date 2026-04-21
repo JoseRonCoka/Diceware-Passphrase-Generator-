@@ -1,8 +1,7 @@
-<!--File: AcronymPassphraseGenerator.html
-Project: Intro Cybersecurity Project Dice Ware Passphrase Generator. 
+<!--File: index.html
+Project: Dice Ware Passphrase Generator. Originally an Intro Cybersecurity Project 
 Author: Jose Ron Coka
-History: Version 2.0 March 11 2026
-Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
+History: Version 2.0 April 20, 2026. Finalized upgraded version-->
 
 
 <!DOCTYPE html>
@@ -11,13 +10,11 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
 
 <head>
   <meta charset="utf-8" />
-  <!--Needed to make website bigger on smaller screens-->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Acronym Passphrase Generator</title>
+  <title>Dice Ware Passphrase Generator</title>
 
-  <!--Link to CSS and JS files-->
+  <!--Link to CSS file-->
   <link rel="stylesheet" href="css/style.css">
-  <!--<script src="app.js"></script>-->
 
 </head>
 
@@ -27,34 +24,39 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
 
     <div class="content">
       <div class="divFlexContainer">
-        <h2 class="navTitle"><a href="index.html">Dice Ware Passphrase Generator</a></h2>
+      <h2 class="navTitle"><a href="index.html">Dice Ware Passphrase Generator</a></h2>
 
-        <!--Navigation Links on navbar-->
-        <nav class="navbar">
-          <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
-          <a href="HowItWorks.html">How it Works</a>
-        </nav>
-      </div>
+      <!--Navigation Links on navbar-->
+      <nav class="navbar">
+        <a href="AcronymPassphraseGenerator.html">Acronym Passphrase Generator</a>
+        <a href="HowItWorks.html">How it Works</a>
+      </nav>
+    </div>
     </div>
   </header>
 
-
   <section class="introduction">
     <div class="content">
-      <h1>Welcome to the Acronym Passphrase Generator.</h1>
+      <h1>Welcome to the Dice Ware Passphrase Generator</h1>
       <br>
       <p>
-        This generator gives you an Acronym Passphrase Generator. It works similarly to the Dice Ware Passphrase
-        generator. But instead of generating a purely random passphrase it generates an Acronym passphrase.</br>
+        This website generates a secure Passphrase through the DiceWare algorithm, in which a dice is thrown a number of
+        times, this results in a number that can be matched to a word in a DiceWare Wordlist.<br>
         <br>
-        You can enter a meaningful word to you, and a Passphrase will be generated with random words that start with
-        each of the characters that make up the word you entered. </br>
+        You can use any valid Wordlist in this website, you can download the included default wordlists from the GitHub
+        repository of this project, <a href="https://github.com/JoseRonCoka/Diceware-Passphrase-Generator-r"
+          target="_blank">here</a>. These wordlist were made by  <a href="https://www.eff.org/document/passphrase-wordlists"
+          target="_blank">EFF</a>, you can look for wordlists online or make your
+        own.<br>
         <br>
-        The negative aspect is that you lose randomness, but knowing the initials of every word of the passphrase makes
-        it easier to remember.</br>
+        More information in the algorithm and the WordLists that can be used are available in the How It Works page.
+        </br>
+        <br>
+        The more words the passphrase has, the more secure it is. However, it is also harder to remember.</br>
+        Try to find a balance between security and memorability.</br>
         <br>
         <strong>This website does not store any information. Passphrases are generated locally and never leave your machine.</strong>
-      </p>
+      </p>  
     </div>
   </section>
 
@@ -63,16 +65,22 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
       <h3 class="left">Steps:</h3>
       <br>
       <ol>
-        <li>Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm.</li>
-        <li>Enter how many dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.</li>
-        <li>Enter the meaningful word to form the Acronym Passphrase. Remember the passphrase's length will match the
-          number of letters in the word you enter.</li>
-        <li>Click on the Generate Button and see the results.</li>
+        <li>
+          Input a .txt file with the Wordlist you want to use. Remember it must follow the DiceWare Algorithm.
+        </li>
+        <li>
+          Enter the number of dice throws your Wordlist requires. The default Wordlists provided use 5 Dice throws.
+        </li>
+        <li>
+          Enter the desired length of the passphrase. This determines the number of words in the generated passphrase.
+        </li>
+        <li>
+          Click the Generate Button to create your secure passphrase.
+        </li>
       </ol>
 
     </div>
   </section>
-
 
   <!--Generator section, includes the inputs and passphrase result -->
   <section class="generator">
@@ -87,11 +95,9 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
             <label for="fileIn">Input Wordlist here: </label>
             <input type="file" id="fileIn" name="fileInput" accept=".txt"><br><br>
             <label for="throws">Number of Dice Throws:</label>
-            <input type="text" id="throws" name="diceThrows" maxlength="1" size="4"><br><br>
-            <label for="initials">Enter the word with the initials you want your passphrase to be formed by:</label>
-            <input type="text" id="initials" name="initials" size="4">
-
-
+            <input type="text" id="throws" name="diceThrows" maxlength="1" size="4"><br></br>
+            <label for="lenP">Passphrase Length:</label>
+            <input type="text" id="lenP" name="length" maxlength="1" size="4">
         </div>
 
         <div class="divPanel">
@@ -99,28 +105,29 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
           <h3 id="test">Passphrase Generated:</h3>
           <br>
           <h2 class="result" id="result"></br></h2>
+          <br>
           <form action="#">
             <!--Generate button-->
-            <br>
-            <input id="genAcrBut" type="button" value="Generate" />
+            <input class="button" id="genBut" type="button" value="Generate" />
           </form>
+          
 
-          <h3 id="finMess"></h3>
         </div>
       </div>
     </div>
   </section>
 
+  <!--Added Section for entropy results-->
   <section class="entropy">
     <div class="content">
       <h2 class="left">Entropy Calculation:</h2>
       <br>
       <h3 class="left" id="entropyResult"></h3>
 
-      <p id="strength" class="left"></p>
+      <p id="strength" class="center"></p>
       <p id="finalRec" class="left"></p>
 
-      <p id="finalMess">
+      <p id="finalMess" class="left">
         Entropy is a measure of how unpredictable a passphrase is. The higher the entropy, the more secure the
         passphrase is. </br>
         <br>
@@ -130,9 +137,7 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
     </div>
   </section>
 
-</body>
-
-<script type="module" src="js/app.js"></script>
+  <script type="module" src="js/app.js"></script>
 
 </body>
 
@@ -163,11 +168,13 @@ Page: Acronym Passphrase Generator, generates an acronym passphrase.-->
           <a href="https://github.com/JoseRonCoka?" target="_blank">
             <img class="logoLink" src="Assets/Images/GitHub_Invertocat_Black.png" alt="GitHub Logo" width="50"
               height="50">
-              </a>
+            </a>
         </div>
       </div>
     </div>
   </div>
+
+
 </footer>
 
 </html>

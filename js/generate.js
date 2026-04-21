@@ -56,14 +56,26 @@
         var message="";
         for (let y=0; y<pLen; y++)
         {
+          //Pass the array values to the message string to print out the final passphrase.
           message+=matchingElements[y]+ " ";
         }
 
         //Empty array in case user press button again. 
         matchingElements=[];
         
-        //Return the generated passphrase to the main function.
+        
+
+        if (matchingElements.length > 0) {
+          console.log("Generated passphrase: "+message);
+          //Return the generated passphrase to the main function.
         return message;
+        }
+        else {
+          //If no matching words were found, return an error message
+          //This means that the input wordlist is not valid. 
+          console.log("Error not valid wordlist");
+          return "error";
+        }
       }
 
       //Function to generate acronym passphrase
@@ -116,7 +128,17 @@
         matchingElements=[];
         
         //Return the generated passphrase to the main function.
+         if (matchingElements.length > 0) {
+          console.log("Generated passphrase: "+message);
+          //Return the generated passphrase to the main function.
         return message;
+        }
+        else {
+          //If no matching words were found, return an error message
+          //This means that the input wordlist is not valid. 
+          console.log("Error not valid wordlist");
+          return "error";
+        }
 
       }
 

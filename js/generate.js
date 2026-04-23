@@ -91,9 +91,9 @@ export function generateAcronym(wordsTrans, numTt, initLt) {
   for (let i = 0; i < pLen; i++) {
     for (let j = 0; j < numT; j++) {
       diceArr[j] = diceRoll();
-      console.log(
+      /*console.log(
         "Element " + (j + 1) + " of word " + (i + 1) + " is: " + diceArr[j],
-      );
+      );*/
     }
     var diceAsString = diceArr.join(""); // Results in a string
     //Populate the passphrase array with the generated number codes.
@@ -117,7 +117,7 @@ export function generateAcronym(wordsTrans, numTt, initLt) {
 
   //Return the generated passphrase to the main function.
   if (matchingElements.length > 0) {
-    console.log("Generated passphrase: " + message);
+    //console.log("Generated passphrase: " + message);
     //Empty array in case user press button again.
     matchingElements = [];
 
@@ -129,7 +129,6 @@ export function generateAcronym(wordsTrans, numTt, initLt) {
     console.log("Error not valid wordlist");
     //Empty array in case user press button again.
     matchingElements = [];
-
     return "error";
   }
 }

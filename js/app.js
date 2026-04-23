@@ -98,7 +98,7 @@ function extract() {
 function extractAcr() {
   //Takes the input from the HTML
   //Extract required throw number
-  numT = document.getElementById("throws").value;
+  var numT = document.getElementById("throws").value;
   
   //Extract word with initials for passphrase
   var initL = document.getElementById("initials").value;
@@ -151,7 +151,7 @@ function buildLetterPoolSizes(wordlist) {
   for (const listword of Object.values(wordlist)) {
     const word = listword[1].toLowerCase();
     const letter = word.charAt(0);
-    console.log("Doing poolsizes for letter: " + letter);
+    //console.log("Doing poolsizes for letter: " + letter);
     //Adds 1 instance to the pool of the given letter
     //Each item in an obj is stored as a key value pair, meaning we cannot get repeats since each word gets assigned to its starting letter key.
     poolSizes[letter] = (poolSizes[letter] || 0) + 1; //Safeguard in case there are letters with no words, or operator will assign 0 to them.

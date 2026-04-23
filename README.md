@@ -12,7 +12,7 @@ This project was originally created for the Computer Security class at Nova Sout
 
 ## Live Demo
 
-Link:[text](https://passphrase-generator.joseluisroncoka.workers.dev)
+[Link to Live Website](https://passphrase-generator.joseluisroncoka.workers.dev)
 
 ## Features
 
@@ -46,4 +46,4 @@ In the future the web app will run on a website. Currently you can run it locall
 
 ## Status
 
-In development.
+Live

@@ -1,7 +1,11 @@
 # Diceware-Passphrase-Generator
 ## About
 
+<<<<<<< HEAD
  A fully client-side Web Application, able to run in any computer, that generates a random passphrase using the Diceware algorithm and a valid Diceware wordlist created by Electronic Frontier Foundation allowing users to generate a secure and memorable passphrase locally. 
+=======
+A fully client-side Web Application, able to run in any computer, that generates a random passphrase using the Diceware algorithm and a valid Diceware wordlist created by Electronic Frontier Foundation allowing users to generate a secure and memorable passphrase locally. 
+>>>>>>> 59b5e4c223d81bb63cac9c0245c0d1edd1ad2d95
 
 The only requirement to run it is a browser and you having a valid wordlist, you can download the default included wordlist.txt from this repository. wordlistESP.txt includes words in Spanish. 
 
